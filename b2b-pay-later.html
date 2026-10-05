@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B2B pay-later app · Harriet Xu</title>
+<meta name="description" content="Case study: a supplier-invoice credit product for Australian small businesses, taken from an as-built PRD to 110+ dev-ready screens: a compliance-led KYB flow, a back office that mirrors it, and a design system from scratch.">
+<link rel="canonical" href="https://harrietxu.com/b2b-pay-later.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Harriet Xu">
+<meta property="og:title" content="B2B pay-later app · Harriet Xu">
+<meta property="og:description" content="Case study: a supplier-invoice credit product for Australian small businesses, taken from an as-built PRD to 110+ dev-ready screens: a compliance-led KYB flow, a back office that mirrors it, and a design system from scratch.">
+<meta property="og:url" content="https://harrietxu.com/b2b-pay-later.html">
+<meta property="og:image" content="https://harrietxu.com/assets/og/harriet-xu.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Harriet Xu, product designer in Sydney: a product designer who makes the complex clear.">
+<meta name="twitter:card" content="summary_large_image">
+<script>(function(){var l=location;if(l.protocol==='file:'||/^(localhost|127\.0\.0\.1|\[::1\])$/.test(l.hostname)||/[?&]slots=show\b/.test(l.search))document.documentElement.dataset.slots='show'})()</script>
+<script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')})()</script>
+<script>(function(){if(location.hash){var h=document.documentElement;h.style.scrollBehavior='auto';addEventListener('load',function(){requestAnimationFrame(function(){h.style.scrollBehavior=''})})}try{var p=JSON.parse(sessionStorage.getItem('pt')||'null');sessionStorage.removeItem('pt');if(p&&Date.now()-p.t<4000&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add(p.h?'pt-hold':'pt-in');window.__pt=p}}catch(e){}})()</script>
+<link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/Geist-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Newsreader-opsz.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/case.css">
+<link rel="stylesheet" href="css/fold-card.css">
+<script src="js/hx-mark.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="nav">
+  <div class="dock">
+  <nav class="tabbar glass" aria-label="Main">
+    <a class="brand" href="index.html"><span class="hx-mark" data-variant="silk" data-weight="11" aria-hidden="true"></span><span>Harriet Xu</span><span class="bar" aria-hidden="true"></span><span class="place">Sydney, AU</span></a>
+    <div class="links"><a href="index.html#work" aria-current="page">Work</a><a href="about.html">About</a></div>
+  </nav>
+  <div class="actions glass">
+    <a href="assets/resume/Harriet-Xu-Product-Designer.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.5v10M8 11l4 4 4-4M5.5 19h13"/></svg><span>Resume</span></a>
+    <a href="mailto:harriet.xu01@gmail.com?subject=Hello%20Harriet" data-contact><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="m4.5 8 7.5 5.5L19.5 8"/></svg><span>Get in touch</span></a>
+  </div>
+  </div>
+  <button id="theme" class="mode glass" type="button" aria-label="Switch colour mode">
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+  </button>
+</div>
+<script>(function(){var m=document.querySelectorAll('.nav .hx-mark');if(window.__pt)m.forEach(function(n){n.dataset.draw='off'});if(window.HXMark)HXMark.init('.nav .hx-mark')})()</script>
+
+<main class="case" id="main">
+
+  <header class="case-head">
+    <a class="case-back" href="index.html#work" aria-label="Back to all work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>All work</span></a>
+    <p class="mono eyebrow">Case study · Fintech · Client project</p>
+
+    <h1>B2B pay-later app</h1>
+    <p class="dek">A supplier-invoice credit product for Australian small businesses, taken from an as-built PRD to 110+ dev-ready screens: a compliance-led onboarding flow, a back office that mirrors it, and a design system from scratch.</p>
+    <dl class="facts">
+      <div><dt class="mono">Role</dt><dd>Sole designer: flows, UX/UI, design system, brand assets, back office</dd></div>
+      <div><dt class="mono">Timeline</dt><dd>Jul – Aug 2026, evenings and weekends</dd></div>
+      <div><dt class="mono">Team</dt><dd>One developer and the client. I was the only designer.</dd></div>
+      <div><dt class="mono">Scope</dt><dd>Mobile app and web back office</dd></div>
+    </dl>
+  </header>
+
+  <figure class="hero">
+    <img class="plate" src="assets/img/work/b2b-pay-later/hero-kyb-overview-confirm-approved-plus-admin.png" alt="The back-office review of a business application, with the applicant’s phone in front showing “You’re approved” and the credit limit" width="1200" height="700" style="aspect-ratio:1200/700">
+    <figcaption>The reviewer’s side of an application, and the applicant’s phone the moment it’s approved.</figcaption>
+  </figure>
+
+  <div class="intro-row"><p class="mono">Background</p><p>The product pays a business’s supplier invoice up front; the business repays in instalments. Before anyone can borrow, the lender has to know exactly who it is lending to. That check is called KYB (know your business), and it is where compliance and drop-off pull in opposite directions.</p></div>
+  <div class="intro-row"><p class="mono">What I did</p><p>The client set out what the product had to do; I designed it, and one developer built it. There were no users to interview yet, so discovery was desk research: AUSTRAC guidance, the ABR and ASIC registers, how comparable products onboard a business, and a line-by-line read of the PRD.</p></div>
+
+  <div class="case-body">
+
+    <section class="sec" aria-labelledby="s1">
+      <div class="sec-intro">
+        <p class="mono">01 · Compliance-led KYB</p>
+        <div class="text">
+          <h2 id="s1">How much you own decides how much we ask</h2>
+          <div>
+            <p>The first KYB flow followed the regulations to the letter and ran to six steps. Reading what the rules actually require of a lender cut it to two: company details come from the registers, and only people who <a href="https://www.austrac.gov.au/industry-and-business/obligations-and-guidance/additional-guidance/determining-ownership-and-control-structures" target="_blank" rel="noopener">own 25% or more</a> are asked for a date of birth and a home address. With few users at this stage, and to keep development efficient, the product uses manual review for now; 03 covers how.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bento">
+        <div class="row">
+          <figure class="fig" style="--ar:282/610"><img src="assets/img/work/b2b-pay-later/kyb-01-who-runs-and-owns-it.png" alt="Who runs and owns it: directors pulled from ASIC, each with an ownership percentage, on one screen" loading="lazy"><figcaption>Who runs and owns it: one screen instead of three.</figcaption></figure>
+          <figure class="fig" style="--ar:282/610"><img src="assets/img/work/b2b-pay-later/kyb-02-ownership-sheet.png" alt="A bottom sheet asking for one person’s stake, with 25%, 50%, 51% and 100% shortcuts" loading="lazy"><figcaption>Ownership percentage is the switch.</figcaption></figure>
+          <figure class="fig" style="--ar:282/610"><img src="assets/img/work/b2b-pay-later/kyb-03-extra-details-25-plus.png" alt="A bit more about Jane: date of birth and home address, required only for people holding 25% or more" loading="lazy"><figcaption>More is asked only of 25%+ owners.</figcaption></figure>
+          <div class="tile"><p class="mono">Steps</p><p>Six steps in the first version. Two in the registry-backed flow.</p><small>The manual-review flow that launches first (03) has three.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s2">
+      <div class="sec-intro">
+        <p class="mono">02 · ABN check</p>
+        <div class="text">
+          <h2 id="s2">One lookup, two outcomes</h2>
+          <div>
+            <p>The ABN lookup decides whether the flow can go on. When the registers return a live company, the confirmation screen shows what came back, read-only, and asks one thing: is this your business? When they show the company is no longer operating, the flow stops right there and says why in plain words, instead of letting someone fill in another five screens for nothing.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bento">
+        <div class="row">
+          <figure class="fig" style="--ar:282/610"><img src="assets/img/work/b2b-pay-later/kyb-04-confirm-business-abr-asic.png" alt="Is this your business? The company card lists the ABN status and the ASIC status side by side" loading="lazy"><figcaption>A verified ABN: what the registers returned.</figcaption></figure>
+          <figure class="fig" style="--ar:282/610"><img src="assets/img/work/b2b-pay-later/kyb-05-deregistered-block.png" alt="We can’t verify this business: both registers show the company is no longer operating, and the flow stops with an explanation" loading="lazy"><figcaption>An ABN that can’t be verified: the flow stops here.</figcaption></figure>
+          <div class="tile" style="--span:2"><p class="mono">The copy</p><p>“A deregistered company has no legal capacity to borrow.”</p><small>The screen says why, not just no.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s3">
+      <div class="sec-intro">
+        <p class="mono">03 · Phased delivery</p>
+        <div class="text">
+          <h2 id="s3">Manual first, automatic next</h2>
+          <div>
+            <p>The first version was the ideal flow: everything verified online against the registers. Walking through it with the developer, I proposed splitting it. A manual-review flow ships first: the applicant enters the details and uploads documents, and a person checks them within a couple of working days. The registry-backed flow follows in the next sprint. It was easier to build, easier for reviewers to run, and it gets the business lending sooner.</p>
+            <p>The overview screen and its structure stay the same across both flows, so neither applicants nor the developer have to relearn anything when the second one lands. The app is honest about it too: this step is “done by a person, not a system”.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bento">
+        <div class="row">
+          <figure class="fig" style="--span:4; --ar:1200/720"><img src="assets/img/work/b2b-pay-later/kyb-06-two-flows-side-by-side.png" alt="Two rows of phone screens: the three-step manual-review flow above, the two-step online-verification flow below" loading="lazy"><figcaption>Manual review (three steps, launch) above; online verification (two steps, next sprint) below.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s4">
+      <div class="sec-intro">
+        <p class="mono">04 · Back office</p>
+        <div class="text">
+          <h2 id="s4">The back office is the application, mirrored</h2>
+          <div>
+            <p>Reviewers see what the applicant entered, the files they uploaded and a checklist to work through, with flags raised for them. A note the applicant leaves at upload (“the company changed its name in May 2024”) shows up on the reviewer’s side as a flag. Approve with a limit, or reject with a reason.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bento">
+        <div class="row">
+          <figure class="fig" style="--ar:282/610"><img src="assets/img/work/b2b-pay-later/app-review-and-submit.png" alt="Review your application: business, owners and documents summarised before submitting" loading="lazy"><figcaption>What the applicant submits.</figcaption></figure>
+          <figure class="fig" style="--span:3; --ar:894/560"><img src="assets/img/work/b2b-pay-later/admin-kyb-review-details.png" alt="The back-office review page: the same sections the applicant filled in, plus a checklist, flags and the approve / reject decision" loading="lazy"><figcaption>What the reviewer sees: the same structure, plus checks and flags.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s5">
+      <div class="sec-intro">
+        <p class="mono">05 · Product thinking</p>
+        <div class="text">
+          <h2 id="s5">Reading the PRD like a product person</h2>
+          <div>
+            <p>Before designing, I read the PRD for places where the product would contradict itself. The app let people choose a repayment term while the back end fixed a different number of instalments, so the simulated schedule and the real one could never match: a complaint waiting to happen. Late fees had no cap, and nothing reminded anyone that a payment was due.</p>
+            <p>I raised these and designed for them: a term picker that shows the total cost as you choose, and due-date reminders with a notification centre.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bento">
+        <div class="row">
+          <figure class="fig" style="--ar:282/610"><img src="assets/img/work/b2b-pay-later/repay-01-term-picker-total-cost.png" alt="How much do you need? An amount, a 3 / 6 / 9 month term picker, and the instalment schedule with the total repayable" loading="lazy"><figcaption>Pick a term, see the total cost.</figcaption></figure>
+          <figure class="fig" style="--ar:282/610"><img src="assets/img/work/b2b-pay-later/repay-02-due-reminder-lockscreen.png" alt="A phone lock screen with three notifications: an instalment due in three days, due today, and overdue" loading="lazy"><figcaption>A reminder before the due date.</figcaption></figure>
+          <figure class="fig" style="--ar:282/610"><img src="assets/img/work/b2b-pay-later/repay-03-notification-centre.png" alt="The notification centre: overdue, due soon, payment verified, funds sent to vendor, credit limit approved" loading="lazy"><figcaption>Notification centre.</figcaption></figure>
+          <div class="tile"><p class="mono">Found in the PRD</p><p>Term options in the app didn’t match the instalments in the back end.</p><small>So the simulated schedule and the real one could never match.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s6">
+      <div class="sec-intro">
+        <p class="mono">06 · Design system &amp; brand</p>
+        <div class="text">
+          <h2 id="s6">A system from zero, in two months</h2>
+          <div>
+            <p>Three tiers of Figma variables (primitives, semantic light / dark, scale), 117 in all, with every text and status colour pair checked against WCAG 2.1 AA. Gradients and shadows can’t live in variables, so styles are the source of truth for those. Surfaces follow three levels, with one rule I like: only one glow per screen. Tokens export as JSON and CSS.</p>
+            <p>The logo was hand-drawn by the client. I vectorised it and produced the standardised outputs: app icons for iOS and Android, the single-colour Android notification icon, favicon and wordmark.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bento">
+        <div class="row">
+          <figure class="fig" style="--span:2; --ar:588/418"><img src="assets/img/work/b2b-pay-later/ds-01-foundations-variables.png" alt="The Figma variables panel: three collections (primitives, semantic, scale) with light and dark values" loading="lazy"><figcaption>Foundations: three tiers of variables.</figcaption></figure>
+          <figure class="fig" style="--span:2; --ar:588/418"><img src="assets/img/work/b2b-pay-later/ds-02-components.png" alt="Component sheet: button states, input states and status chips on the dark surface" loading="lazy"><figcaption>Components.</figcaption></figure>
+        </div>
+        <div class="row">
+          <figure class="fig gate" style="--span:3; --ar:894/488" data-gate="brand-01-logo-outputs" data-gate-src="assets/img/work/b2b-pay-later/brand-01-logo-outputs.enc.js" data-alt="The brand sheet: the logo lockup on light, on dark and in mono, the app icon in three colourways, and the debit card">
+            <div class="gate-plate">
+              <span class="gate-lock" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10.5" width="15" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3M12 14.5v2.5"/></svg></span>
+              <p class="gate-title">Brand outputs</p>
+              <p class="gate-why">The client’s name and logo stay private while this case is anonymous.</p>
+              <button type="button" class="gate-btn glass" data-cursor="Unlock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span>Have the password? Unlock</span></button>
+            </div>
+            <figcaption data-open="Brand sheet: the client’s hand-drawn mark, vectorised, then set up for every place it has to live — the lockup on light, dark and mono, the app icon in three colourways, and the card.">Brand sheet, password-protected: the lockups, the app icon and the card.</figcaption>
+          </figure>
+          <div class="tile"><p class="mono">Numbers</p><p>117 variables · 15 component sets · 35 icons</p><small>Counted in the file on 21 Sep.</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s7">
+      <div class="sec-intro">
+        <p class="mono">07 · Working with AI</p>
+        <div class="text">
+          <h2 id="s7">AI did the volume. The decisions stayed mine.</h2>
+          <div>
+            <p>Two months, one designer, evenings and weekends, 110+ screens plus a back office and a design system: I ran this as an AI-assisted design sprint with Claude and the Figma MCP. I owned the research, the decisions and the review; AI did the volume. I reviewed every screen and checked each batch against the source.</p>
+            <p>The home screen shows how the iteration went. I drew three options and walked the client through the trade-offs of each; they chose the card layout, and I refined the card’s materials for the final version.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bento">
+        <div class="row eq">
+          <figure class="fig fit" style="--span:3; --ar:894/560; --plate:#0F141A"><img src="assets/img/work/b2b-pay-later/home-01-three-versions.png" alt="Three home-screen options side by side: a large available-credit figure with a drawn-down bar, two summary tiles, and a vendor-credit banner" loading="lazy"><figcaption>Three home-screen options, side by side.</figcaption></figure>
+          <figure class="fig" style="--ar:282/610"><img src="assets/img/work/b2b-pay-later/home-02-final-card.png" alt="The final home screen: a card showing the available credit and the amount drawn, then the rate, the payment time, the request under review and recent requests" loading="lazy"><figcaption>The card version, after the materials pass.</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s8">
+      <div class="sec-intro">
+        <p class="mono">08 · Reflection</p>
+        <div class="text">
+          <h2 id="s8">What I’d do differently</h2>
+          <div>
+            <p>There was no merchant to walk the flow with before handoff, because there were no merchants yet; that is the first thing I would change. And the instalment-term mismatch I found in the PRD would have been cheaper to settle with the developer in week one than after the screens were drawn.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <nav class="next" aria-label="Previous and next case study">
+    <a class="prev" href="gloss-vault.html" data-cursor="Read case study"><span class="mono">Previous</span><span class="t">← GLOSS Vault</span></a>
+    <a class="fwd" href="cogniss.html" data-cursor="Read case study"><span class="mono">Next</span><span class="t">Cogniss →</span></a>
+  </nav>
+</main>
+
+<footer class="site-foot" id="contact">
+  <div class="cta has-fold">
+    <div class="say">
+      <h2>Working on something interesting?<br>I’d like to hear about it.</h2>
+    </div>
+    <div class="fold-slot">
+      <div class="fold" data-fold data-auto="end">
+        <div class="fold-ground" aria-hidden="true"></div>
+        <button class="fold-hit" type="button" aria-expanded="false" aria-controls="fold-inside" data-grab><span class="fold-cue" data-cursor="Open the card"></span><span class="fold-sr">Open the card</span></button>
+        <div class="fold-page fold-base" id="fold-inside">
+          <div class="fold-paper">
+            <span class="fold-mark hx-mark" data-variant="ink" data-weight="9" data-draw="off" aria-hidden="true"></span>
+            <span class="fold-tag">harrietxu.com</span>
+            <ul class="fold-links">
+              <li><a href="mailto:harriet.xu01@gmail.com?subject=Hello%20Harriet" data-contact><span>Email</span><span>harriet.xu01@gmail.com</span></a></li>
+              <li><a href="https://www.linkedin.com/in/harrietxu" target="_blank" rel="noopener"><span>LinkedIn</span><span>in/harrietxu ↗</span></a></li>
+              <li><a href="assets/resume/Harriet-Xu-Product-Designer.pdf" target="_blank" rel="noopener"><span>Resume</span><span>PDF ↓</span></a></li>
+            </ul>
+            <p class="fold-id"><b>Harriet Xu</b><span>Product Designer</span></p>
+          </div>
+          <i class="fold-shade"></i><i class="fold-rim"></i>
+        </div>
+        <i class="fold-slab" aria-hidden="true"></i>
+        <div class="fold-page fold-front" aria-hidden="true">
+          <div class="fold-paper">
+            <span class="fold-mark hx-mark" data-variant="ink" data-weight="9" data-draw="off" aria-hidden="true"></span>
+            <span class="fold-tag">harrietxu.com</span>
+            <p class="fold-id"><b>Harriet Xu</b><span>Product Designer</span></p>
+          </div>
+          <span class="fold-blur"></span><i class="fold-shade"></i><i class="fold-rim"></i>
+        </div>
+        <div class="fold-page fold-back">
+          <div class="fold-paper">
+            <img class="fold-face" src="assets/img/all/card-face.jpg" width="256" height="256" alt="Harriet Xu" loading="lazy" decoding="async" draggable="false">
+            <div class="fold-say"><p>A product designer who makes the complex <em>clear</em>.</p><span>Fintech · Sydney</span></div>
+          </div>
+          <span class="fold-blur"></span><i class="fold-shade"></i><i class="fold-rim"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fine mono"><p>© 2026 Harriet Xu</p><p>Sydney, Australia · Designed in Figma, written in HTML</p></div>
+</footer>
+
+<script src="js/case.js"></script>
+<script src="js/lightbox.js"></script>
+<script src="js/gate.js"></script>
+<script src="js/fold-card.js"></script>
+<script src="js/site.js"></script>
+<script src="js/motion.js"></script>
+</body>
+</html>

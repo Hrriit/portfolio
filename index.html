@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Harriet Xu · Product designer</title>
+<script>(function(){var l=location;if(l.protocol==='file:'||/^(localhost|127\.0\.0\.1|\[::1\])$/.test(l.hostname)||/[?&]slots=show\b/.test(l.search))document.documentElement.dataset.slots='show'})()</script>
+<meta name="description" content="Harriet Xu is a product designer in Sydney working in fintech: personal finance and regulated B2B credit.">
+<link rel="canonical" href="https://harrietxu.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Harriet Xu">
+<meta property="og:title" content="Harriet Xu · Product designer">
+<meta property="og:description" content="Harriet Xu is a product designer in Sydney working in fintech: personal finance and regulated B2B credit.">
+<meta property="og:url" content="https://harrietxu.com/">
+<meta property="og:image" content="https://harrietxu.com/assets/og/harriet-xu.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Harriet Xu, product designer in Sydney: a product designer who makes the complex clear.">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Harriet Xu","jobTitle":"Product Designer","url":"https://harrietxu.com/","image":"https://harrietxu.com/assets/og/harriet-xu.jpg","address":{"@type":"PostalAddress","addressLocality":"Sydney","addressCountry":"AU"},"sameAs":["https://www.linkedin.com/in/harrietxu"]}</script>
+<script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.classList.add('js')})()</script>
+<script>(function(){if(location.hash){var h=document.documentElement;h.style.scrollBehavior='auto';addEventListener('load',function(){requestAnimationFrame(function(){h.style.scrollBehavior=''})})}try{var p=JSON.parse(sessionStorage.getItem('pt')||'null');sessionStorage.removeItem('pt');if(p&&Date.now()-p.t<4000&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add(p.h?'pt-hold':'pt-in');window.__pt=p}}catch(e){}})()</script>
+<link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/Geist-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Newsreader-opsz.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/lab.css">
+<link rel="stylesheet" href="css/ba.css">
+<link rel="stylesheet" href="css/lab-motion.css">
+<link rel="stylesheet" href="css/lab-credit.css">
+<link rel="stylesheet" href="css/fold-card.css">
+<script src="js/hx-mark.js"></script>
+<style>
+  html { scroll-behavior:smooth; }
+  :root { --tile-glow:rgba(255,255,255,.55); } :root[data-theme="dark"] { --tile-glow:rgba(141,187,255,.14); }
+
+  :root { --poster:url("assets/hero/hero-poster-light.jpg"); } :root[data-theme="dark"] { --poster:url("assets/hero/hero-poster-dark.jpg"); }
+  .hero { position:relative; min-height:min(820px, 100svh); display:flex; flex-direction:column; justify-content:flex-end; gap:72px; padding:128px var(--gutter) 128px; overflow:hidden;
+          background:var(--poster) center/cover no-repeat; }
+  .hero canvas { position:absolute; inset:0; width:100%; height:100%; display:block; }
+  .hero > :not(canvas) { position:relative; }
+  .hero .who { display:none; align-items:center; gap:8px; font-weight:500; font-size:15px; } .hero .who .hx-mark { width:28px; height:28px; flex:none; }
+  h1 { font:300 clamp(38px, 7.2vw, 72px)/1 Newsreader, Georgia, serif; letter-spacing:-.035em; margin:32px 0; text-wrap:balance; }
+  h1 em { font-style:italic; }
+  .hero .hello { display:grid; gap:2px; font-size:17px; line-height:1.4; }
+  .hero .hello b { font-weight:500; color:var(--color-fg-accent); } .hero .hello span { color:var(--color-fg-secondary); }
+  .lead { font-size:clamp(18px, 1.4vw, 20px); line-height:1.5; max-width:640px; }
+  .cta { display:flex; gap:24px; margin-top:32px; font-weight:500; font-size:15px; }
+  .hero .cta a { color:var(--color-fg-accent); text-decoration-color:color-mix(in srgb, currentColor 40%, transparent); } .hero .cta a:hover { text-decoration-color:currentColor; }
+  .hero .cta { align-items:baseline; margin-top:48px;   } .hero .cta .hint { margin-left:auto; color:var(--color-fg-secondary); opacity:.72; }
+  @media (hover:none) { .hint { display:none; } }
+
+  @media (max-width:360px) { h1 { font-size:37px; } h1 br { display:none; } }
+  @media (max-width:720px) { h1 br { display:none; } .hero { padding-top:24px; padding-bottom:168px; justify-content:space-between; } .hero > div { margin-block:auto; } .hero .who { display:flex; min-height:48px; } }
+
+  .work { padding:96px var(--gutter) 128px; container-type:inline-size; }
+  .work ~ .site-foot { margin-inline:var(--gutter); }
+  .work h2 { font:400 40px/1.12 Newsreader, Georgia, serif; letter-spacing:-.02em; margin-bottom:32px; }
+  .bento { display:grid; grid-template-columns:repeat(6, minmax(0, 1fr)); gap:24px;
+           grid-template-rows:520px 392px auto;
+           grid-template-rows:calc((100cqw - 48px) / 3 * 1.354) calc((100cqw - 24px) / 3) auto; }
+  .tile { --r:28px; --mx:50%; --my:50%; position:relative; display:flex; flex-direction:column; min-width:0; border-radius:var(--r); corner-shape:squircle; overflow:hidden;     text-decoration:none; background:var(--color-bg-surface); border:1px solid var(--color-border-subtle);
+          transition:transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s cubic-bezier(.2,.7,.2,1), border-color .2s ease; }
+  .tile.large { grid-column:1 / span 4; grid-row:1; } .tile.tall { grid-column:5 / span 2; grid-row:1; } .tile.small { grid-column:span 3; }
+  .tile .media { flex:1; min-height:0; position:relative; display:grid; place-items:center; overflow:hidden; background:var(--color-bg-cover-1); } .tile.alt .media { background:var(--color-bg-cover-2); }
+  .tile { --zoom:1; --focus:50% 50%; }
+  .tile .cover { position:absolute; left:calc((100% - 100% * var(--zoom)) / 2); top:calc((100% - 100% * var(--zoom)) / 2); width:calc(100% * var(--zoom)); height:calc(100% * var(--zoom)); object-fit:cover; object-position:var(--focus); display:block; transition:transform .6s cubic-bezier(.2,.7,.2,1); }
+
+  .tile .cap { padding:16px 20px 20px; display:grid; gap:4px; }
+  .tile h3 { font:400 22px/1.26 Newsreader, Georgia, serif; letter-spacing:-.01em; } .tile.large h3 { font-size:28px; line-height:1.2; }
+  .tile p { font-size:14px; line-height:1.57; color:var(--color-fg-secondary); } .tile .meta { color:var(--color-fg-primary); margin-top:4px; }
+  .tile::after { content:""; position:absolute; inset:0; pointer-events:none; opacity:0; transition:opacity .3s ease; background:radial-gradient(260px circle at var(--mx) var(--my), var(--tile-glow), transparent 65%); }
+  .tile .arrow { position:absolute; top:14px; right:14px; width:36px; height:36px; border-radius:50%; display:grid; place-items:center; background:var(--color-bg-page); border:1px solid var(--color-border-subtle); font-size:15px; opacity:0; transform:translate(-6px, 6px); transition:opacity .25s ease, transform .4s cubic-bezier(.2,.7,.2,1); }
+  .tile.small .media { flex:0 0 46%; }
+  :root { --ring:#8DBBFF; } :root[data-theme="dark"] { --ring:#3B78DC; }
+  .tile.pic .media { flex:1; }
+  .tile.pic .cap { --inset:8px; position:absolute; left:var(--inset); right:var(--inset); bottom:var(--inset); display:flex; align-items:flex-end; justify-content:space-between; gap:16px; padding:16px 16px 16px 20px;
+                   border-radius:calc(var(--r) - var(--inset)); corner-shape:squircle;
+                   background:var(--color-bg-surface); border:1px solid var(--color-border-subtle); box-shadow:0 16px 40px -20px var(--glass-shadow);
+                   transition:opacity .25s ease, transform .4s cubic-bezier(.2,0,0,1); }
+  .tile.pic h3 { font-size:20px; line-height:1.25; white-space:normal; } .tile.pic.large h3 { font-size:24px; line-height:1.2; }
+  .tile.pic .txt { flex:1; display:grid; gap:8px; min-width:0; }
+  .tile.pic .more { display:grid; gap:6px; min-width:0; }
+  .tile.pic .meta { margin:0; }
+  .tile.pic .desc { font-size:14px; line-height:1.5; color:var(--color-fg-secondary); max-width:52ch; text-wrap:pretty; }
+  .tile.pic .cap .arrow { position:static; width:auto; height:auto; flex:none; opacity:1; transform:none; font-size:18px; line-height:1; background:none; color:var(--color-fg-primary); border:0; padding:0 2px 3px 0; transition:none; }
+  .lab-block { --r:28px; --pad:16px; grid-column:1 / -1; display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:var(--pad); padding:var(--pad);
+               border-radius:var(--r); corner-shape:squircle; background:var(--color-bg-surface); border:1px solid var(--color-border-subtle); }
+  .lab-block > a { position:relative; min-width:0; border-radius:calc(var(--r) - var(--pad)); corner-shape:squircle; text-decoration:none; color:inherit; border:1px solid var(--color-border-subtle);
+                   transition:transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s cubic-bezier(.2,.7,.2,1), border-color .2s ease; }
+  .lab-block .spec { height:max(150px, 16.67cqw); width:auto; margin:0; flex:none; box-shadow:0 10px 24px -16px var(--glass-shadow); }
+  .lab-block .spec.w2 { grid-column:span 2; }
+  .lab-block .spec .lbl { left:14px; bottom:12px; }
+  @media (min-width:721px) { .lab-block .spec > :not(.lbl):not(.n), .lab-block .spec::before { scale:1.3; } }
+  @media (min-width:721px) {
+    .lab-block .spec.card::before, .lab-block .spec.holo::before { scale:none; width:auto; margin-bottom:max(14px, 1.5cqw); }
+    .lab-block .spec.card::before { height:max(75px, 8.4cqw); aspect-ratio:3 / 4; border-radius:6px; box-shadow:0 12px 20px -8px rgba(20,58,94,.45); }
+    .lab-block .spec.holo::before { height:max(78px, 8.5cqw); aspect-ratio:2 / 3; border-radius:4px; box-shadow:0 12px 20px -8px rgba(120,60,20,.45); } }
+  .lab-block .spec.more { background:none; box-shadow:none; border:1px dashed color-mix(in srgb, var(--color-fg-primary) 30%, transparent); color:var(--color-fg-secondary); }
+  .lab-block .spec.more .n { font:300 36px/1 Newsreader, Georgia, serif; letter-spacing:-.02em; margin-bottom:14px; }
+  .lab-block .spec.recurring { background:#8a8a8a url("assets/img/lab/colour-tiles-after.webp") 50% 50% / 111% auto no-repeat; }
+  .lab-block .spec.recurring .lbl { left:12px; bottom:10px; padding:4px 9px; border-radius:999px; color:#0E1013; background:rgba(255,255,255,.84); letter-spacing:.04em; }
+  @media (max-width:720px) { .lab-block .spec.recurring { background-size:cover; } }
+  .lab-block .spec.calendar { background:#EEF0F3 url("assets/img/lab/colour-calendar-after.webp") 50% 20% / auto 88% no-repeat; }
+  @media (max-width:720px) { .lab-block .spec.calendar { background-size:auto 80%; } }
+  .lab-block .spec.calendar .lbl { left:12px; bottom:10px; padding:4px 9px; border-radius:999px; color:#0E1013; background:rgba(255,255,255,.84); letter-spacing:.04em; }
+  .lab-intro { display:grid; grid-template-rows:auto auto 1fr; gap:6px; padding:20px 22px 22px; background:var(--color-bg-cover-1); }
+  .lab-intro { grid-column:1 / -1; padding-right:60px; }
+  .lab-block h3 { font:400 22px/1.26 Newsreader, Georgia, serif; letter-spacing:-.01em; }
+  .lab-block p { font-size:14px; line-height:1.57; color:var(--color-fg-secondary); text-wrap:pretty; } .lab-block .meta { color:var(--color-fg-primary); }
+  .lab-intro .arrow { position:absolute; top:18px; right:20px; font-size:18px; line-height:1; color:var(--color-fg-secondary); transition:transform .4s cubic-bezier(.2,.7,.2,1), color .2s ease; }
+  .lab-block > a:focus-visible { outline:none; border-color:var(--ring); box-shadow:0 0 0 1px var(--ring); }
+  @media (hover:hover) {
+    .lab-block > a:hover, .lab-block > a:focus-visible { transform:translateY(-3px); border-color:var(--ring); box-shadow:0 0 0 1px var(--ring), 0 18px 36px -20px var(--glass-shadow); }
+    .lab-intro:hover .arrow, .lab-intro:focus-visible .arrow { color:var(--color-fg-primary); transform:translate(2px, -2px); }
+  }
+  @media (prefers-reduced-motion: reduce) { .lab-block > a, .lab-intro .arrow { transition:none; } .lab-block > a:hover, .lab-block > a:focus-visible { transform:none; } }
+  @media (max-width:720px) { .lab-block { --pad:12px; grid-template-columns:repeat(2, minmax(0, 1fr)); } .lab-block .spec, .lab-block .spec.w2 { grid-column:auto; height:auto; aspect-ratio:5/4; }
+                             .lab-intro { padding-right:44px; } }
+  @media (hover:hover) {
+    .tile.pic:not(:hover):not(:focus-visible) .cap { opacity:0; transform:translateY(10px) scale(.98); }
+    .tile.pic:hover, .tile.pic:focus-visible { border-color:var(--ring); box-shadow:0 0 0 1px var(--ring), 0 22px 44px -22px var(--glass-shadow); }
+  }
+  @media (hover:hover) {
+    .tile:hover, .tile:focus-visible { transform:translateY(-4px); box-shadow:0 22px 44px -22px var(--glass-shadow); border-color:var(--color-border-divider); }
+    .tile:hover::after { opacity:1; } .tile:hover .arrow, .tile:focus-visible .arrow { opacity:1; transform:none; } .tile:hover .cover { transform:scale(1.03); }
+  }
+  @media (hover:none) {
+    .tile, .lab-block > a { -webkit-tap-highlight-color:transparent; }
+    .bento .tile:active, .bento .lab-block > a:active { transform:scale(.98); border-color:var(--ring); box-shadow:0 0 0 1px var(--ring); }
+  }
+  .js .reveal { opacity:0; translate:0 14px; } .js .reveal.in { opacity:1; translate:0 0; transition:opacity .7s ease var(--d, 0ms), translate .7s cubic-bezier(.2,.7,.2,1) var(--d, 0ms); }
+  .js .tile.reveal.in { transition:opacity .7s ease var(--d, 0ms), translate .7s cubic-bezier(.2,.7,.2,1) var(--d, 0ms), transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s cubic-bezier(.2,.7,.2,1), border-color .2s ease; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .tile, .tile .cover, .tile .arrow, .tile .cap { transition:none !important; } .tile:hover { transform:none; } .js .reveal { opacity:1; translate:none; } }
+  @media (max-width:960px) {
+    .bento { grid-template-columns:repeat(2, minmax(0, 1fr)); grid-template-rows:480px 290px 290px auto;
+             grid-template-rows:calc((100cqw - 24px) / 2 * 1.3) calc((100cqw - 24px) / 2 * .8) calc((100cqw - 24px) / 2 * .8) auto; }
+    .tile.large { grid-column:1 / -1; grid-row:1; } .tile.tall { grid-column:1; grid-row:2 / span 2; } .tile.small { grid-column:2; }
+  }
+  @media (max-width:720px) { .bento { grid-template-columns:minmax(0, 1fr); grid-template-rows:none; grid-auto-rows:auto; gap:16px; } .tile.large, .tile.tall, .tile.small { grid-column:auto; grid-row:auto; } .tile .media { flex:none; aspect-ratio:3/2; } .tile.pic.large .media { aspect-ratio:4/3; } .tile.pic .meta { white-space:normal; line-height:1.45; } .work { padding-bottom:96px; }
+                             .tile.pic .cap { position:static; opacity:1 !important; transform:none !important; border:0; border-radius:0; box-shadow:none; padding:16px 20px 20px; } }
+
+</style>
+</head>
+<body>
+<div class="nav">
+  <div class="dock">
+  <nav class="tabbar glass" aria-label="Main">
+    <a class="brand" href="index.html"><span class="hx-mark" data-variant="silk" data-weight="11" aria-hidden="true"></span><span>Harriet Xu</span><span class="bar" aria-hidden="true"></span><span class="place">Sydney, AU</span></a>
+    <div class="links"><a href="#work" aria-current="page">Work</a><a href="about.html">About</a></div>
+  </nav>
+  <div class="actions glass">
+    <a href="assets/resume/Harriet-Xu-Product-Designer.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.5v10M8 11l4 4 4-4M5.5 19h13"/></svg><span>Resume</span></a>
+    <a href="mailto:harriet.xu01@gmail.com?subject=Hello%20Harriet" data-contact><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="m4.5 8 7.5 5.5L19.5 8"/></svg><span>Get in touch</span></a>
+  </div>
+  </div>
+  <button id="theme" class="mode glass" type="button" aria-label="Switch colour mode">
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+  </button>
+</div>
+<script>(function(){var m=document.querySelectorAll('.nav .hx-mark');if(window.__pt)m.forEach(function(n){n.dataset.draw='off'});if(window.HXMark)HXMark.init('.nav .hx-mark')})()</script>
+
+<header class="hero" id="hero">
+  <canvas id="silk" aria-hidden="true"></canvas>
+  <p class="who" aria-hidden="true"><span class="hx-mark" data-variant="ink" data-weight="10"></span></p>
+  <div>
+    <p class="hello"><b>Hey, I’m Harriet.</b><span>Fintech · Sydney</span></p>
+    <h1>A product designer who <br>makes the complex <em>clear</em>.</h1>
+    <p class="cta"><a href="#work">View work ↓</a><span class="hint mono">↳ Try moving your cursor.</span></p>
+  </div>
+</header>
+
+<section class="work" id="work">
+  <h2 class="reveal">Work</h2>
+  <div class="bento">
+    <a data-cursor="Read case study" class="tile pic large reveal" href="gloss-vault.html" style="--d:0ms"><span class="media"><video class="cover" muted loop playsinline preload="metadata" poster="assets/img/work/gloss-vault/cover.jpg" width="1800" height="1200" aria-hidden="true" disablepictureinpicture><source src="assets/video/work/gloss-vault/cover.mp4" type="video/mp4"><source src="assets/video/work/gloss-vault/cover.webm" type="video/webm"></video></span><span class="cap"><span class="txt"><h3>GLOSS Vault</h3><span class="more"><span class="mono meta">Ironfly · 2024–now · Sole designer</span><span class="desc">An Australian personal-finance vault. 15+ features across desktop and mobile, light and dark, handed off to the engineering team.</span></span></span><span class="arrow" aria-hidden="true">↗</span></span></a>
+    <a data-cursor="Read case study" class="tile pic tall alt reveal" href="b2b-pay-later.html" style="--d:80ms; --focus:50% 18%"><span class="media"><video class="cover" muted loop playsinline preload="metadata" poster="assets/img/work/b2b-pay-later/cover.jpg" width="1086" height="1448" aria-hidden="true" disablepictureinpicture><source src="assets/video/work/b2b-pay-later/cover.mp4" type="video/mp4"><source src="assets/video/work/b2b-pay-later/cover.webm" type="video/webm"></video></span><span class="cap"><span class="txt"><h3>B2B pay-later app</h3><span class="more"><span class="mono meta">Client project · 2026 · name withheld</span><span class="desc">From PRD to 110+ dev-ready screens, with KYB cut from six steps to two.</span></span></span><span class="arrow" aria-hidden="true">↗</span></span></a>
+    <a data-cursor="View project" class="tile pic small cogniss reveal" href="cogniss.html" style="--d:140ms"><span class="media"><img class="cover" src="assets/img/work/cogniss/cover.jpg" width="2000" height="1360" alt="" loading="lazy" decoding="async"></span><span class="cap"><span class="txt"><h3>Cogniss</h3><span class="more"><span class="mono meta">2024 · Product design intern</span><span class="desc">Prototype discussions with the team, high-fidelity prototypes, design audits, product documentation and usability tests.</span></span></span><span class="arrow" aria-hidden="true">↗</span></span></a>
+    <a data-cursor="View project" class="tile pic small alt reveal" href="bilibili-live.html" style="--d:200ms; --zoom:1.3; --focus:44% 50%"><span class="media"><img class="cover" src="assets/img/work/bilibili-live/cover.jpg" width="2000" height="1575" alt="" loading="lazy" decoding="async"></span><span class="cap"><span class="txt"><h3>bilibili</h3><span class="more"><span class="mono meta">2021 · UI/UX intern</span><span class="desc">An iterative redesign of bilibili’s streamer app: a shorter path to going live, a regrouped dashboard, and a component library the team shared.</span></span></span><span class="arrow" aria-hidden="true">↗</span></span></a>
+    <div class="lab-block reveal" style="--d:0ms">
+      <a class="spec motion w2" href="#lab" aria-haspopup="dialog" aria-controls="lab" data-go="motion" data-cursor="Try it live" aria-label="Motion, open in the AI Lab"><span class="ms" aria-hidden="true"><span class="th"></span><i></i><i></i><i></i></span><span class="mono lbl" aria-hidden="true">Motion</span></a>
+      <a class="spec calendar" href="#lab" aria-haspopup="dialog" aria-controls="lab" data-go="colour-calendar" data-cursor="Before / after" aria-label="Payment calendar, before and after, open in the AI Lab"><span class="mono lbl" aria-hidden="true">Payment calendar</span></a>
+      <a class="spec card" href="#lab" aria-haspopup="dialog" aria-controls="lab" data-go="card" data-cursor="Try it live" aria-label="Card, open in the AI Lab"><span class="mono lbl" aria-hidden="true">Card</span></a>
+      <a class="spec silk" href="#lab" aria-haspopup="dialog" aria-controls="lab" data-go="silk" data-cursor="Try it live" aria-label="Silk, open in the AI Lab"><span class="mono lbl" aria-hidden="true">Silk</span></a>
+      <a class="spec recurring w2" href="#lab" aria-haspopup="dialog" aria-controls="lab" data-go="colour-tiles" data-cursor="Before / after" aria-label="Recurring, diffused-light cards, open in the AI Lab"><span class="mono lbl" aria-hidden="true">Recurring</span></a>
+      <a class="spec more" href="#lab" aria-haspopup="dialog" aria-controls="lab" data-go="holo" data-more data-cursor="See the rest" aria-label="7 more experiments, open in the AI Lab"><span class="n" aria-hidden="true">+7</span><span class="mono lbl" aria-hidden="true">More</span></a>
+      <a class="lab-intro" href="#lab" aria-haspopup="dialog" aria-controls="lab" data-cursor="Visit the lab"><h3>AI &amp; Motion Lab</h3><p class="mono meta">Ongoing · Side practice · 8 live, more coming</p><p>Experiments in code: shaders, motion, sound. The cloth at the top of this page is one of them. Everything in here runs live.</p><span class="arrow" aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="lab-overlay" id="lab" hidden>
+  <div class="lab-back"></div>
+  <section class="lab-sheet" role="dialog" aria-modal="true" aria-labelledby="lab-title" tabindex="-1">
+    <button class="lab-close" type="button" aria-label="Close the lab"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <header class="lab-head">
+      <p class="mono kicker">AI &amp; Motion Lab · Ongoing side practice</p>
+      <h2 id="lab-title">Experiments in code</h2>
+      <p class="lead">Shaders, motion, sound. Everything marked <b>live</b> is running right here on this page, not a recording. Move across it, click it.</p>
+    </header>
+    <div class="lab-grid">
+      <article class="lab-card wide" data-exp="motion" style="--d:0ms">
+        <div class="media">
+          <div class="stage motion">
+            <span class="mo-orb a" aria-hidden="true"></span><span class="mo-orb b" aria-hidden="true"></span><span class="mo-orb c" aria-hidden="true"></span>
+            <div class="mo-side">
+              <div class="mo-tabs lg" role="group" aria-label="Scenarios">
+                <button type="button" data-s="toggle" aria-pressed="true"><span class="no">S02</span>Toggle thumb</button>
+                <button type="button" data-s="stagger" aria-pressed="false"><span class="no">S04</span>List entrance</button>
+                <button type="button" data-s="swipe" aria-pressed="false"><span class="no">S06</span>Swipe row</button>
+                <button type="button" data-s="pull" aria-pressed="false"><span class="no">S07</span>Pull to refresh</button>
+                <button type="button" data-s="toast" aria-pressed="false"><span class="no">S13</span>Toast</button>
+                <button type="button" data-s="modal" aria-pressed="false"><span class="no">S14</span>Modal</button>
+                <button type="button" data-s="sheet" aria-pressed="false"><span class="no">S15</span>Bottom sheet</button>
+                <button type="button" data-s="reorder" aria-pressed="false"><span class="no">S16</span>Drag to reorder</button>
+                <button type="button" data-s="credit" aria-pressed="false"><span class="no">A1</span>Credit card</button>
+              </div>
+            </div>
+            <div class="mo-view">
+              <div class="mo-panel lg">
+
+                <div class="mo-scr is-on" data-s="toggle">
+                  <div class="mo-col">
+                    <p class="mo-t">Add transaction</p>
+                    <div class="mo-seg lg" role="group" aria-label="When"><span class="th" aria-hidden="true"></span><button type="button" aria-pressed="true">Past</button><button type="button" aria-pressed="false">Today</button><button type="button" aria-pressed="false">Future</button></div>
+                    <div class="mo-field"><div class="fg"><div class="k">Date</div><div class="v">A day that has passed: pick it</div></div><div class="fg"><div class="k">Amount</div><div class="v">A$ 18.20</div></div><div class="fg"><div class="k">Category</div><div class="v">Food &amp; drink</div></div></div>
+                    <div class="mo-foot"><button class="mo-btn" type="button">Add transaction</button></div>
+                  </div>
+                </div>
+
+                <div class="mo-scr" data-s="stagger">
+                  <div class="mo-col">
+                    <p class="mo-t">Accounts<small>Cards arrive one after another, on first load only</small></p>
+                    <ul class="mo-list mo-acc">
+                      <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 9h16M4 9l8-5 8 5M6 9v8M10 9v8M14 9v8M18 9v8M3 19h18"/></svg></span><span class="nm">ANZ Saver<small>3.65% p.a.</small></span><span class="am">4,950.00</span></li>
+                      <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 9h16M4 9l8-5 8 5M6 9v8M10 9v8M14 9v8M18 9v8M3 19h18"/></svg></span><span class="nm">NAB Saver<small>4.25% p.a.</small></span><span class="am">3,204.10</span></li>
+                      <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></span><span class="nm">CBA Access<small>Everyday</small></span><span class="am">1,911.70</span></li>
+                      <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 9h16M4 9l8-5 8 5M6 9v8M10 9v8M14 9v8M18 9v8M3 19h18"/></svg></span><span class="nm">HSBC AU<small>4.55% p.a.</small></span><span class="am">2,900.00</span></li>
+                      <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="7" width="18" height="12" rx="3"/><path d="M15 13h3"/></svg></span><span class="nm">Cash<small>Wallet</small></span><span class="am">240.00</span></li>
+                    </ul>
+                    <div class="mo-foot"><button class="mo-btn ghost" type="button" data-replay>Play it again</button></div>
+                  </div>
+                </div>
+
+                <div class="mo-scr" data-s="swipe">
+                  <div class="mo-col">
+                    <p class="mo-t">Transactions<small>Today</small></p>
+                    <ul class="mo-list">
+                      <li class="mo-srow"><span class="bg" aria-hidden="true">Delete</span><div class="fx mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 11h14l-1 9H6zM8 11V7a4 4 0 0 1 8 0v4"/></svg></span><span class="nm">Lunch<small>Food &amp; drink</small></span><span class="am neg">−A$ 18.20</span></div></li>
+                      <li class="mo-srow"><span class="bg" aria-hidden="true">Delete</span><div class="fx mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 15l2-6h12l2 6M4 15v3h3v-3M17 15v3h3v-3M4 15h16"/></svg></span><span class="nm">Taxi<small>Transport</small></span><span class="am neg">−A$ 24.90</span></div></li>
+                      <li class="mo-srow"><span class="bg" aria-hidden="true">Delete</span><div class="fx mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 9h18M8 5v14M16 5v14"/></svg></span><span class="nm">Cinema<small>Going out</small></span><span class="am neg">−A$ 32.00</span></div></li>
+                      <li class="mo-srow"><span class="bg" aria-hidden="true">Delete</span><div class="fx mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6h15l-1.5 8h-12zM6 6L5 3H2M9 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2zM17 20a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/></svg></span><span class="nm">Groceries<small>Home</small></span><span class="am neg">−A$ 64.35</span></div></li>
+                      <li class="mo-srow"><span class="bg" aria-hidden="true">Delete</span><div class="fx mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 9h11v6a4 4 0 0 1-4 4H9a4 4 0 0 1-4-4zM16 10h2a2 2 0 0 1 0 4h-2M4 21h13"/></svg></span><span class="nm">Coffee<small>Food &amp; drink</small></span><span class="am neg">−A$ 5.50</span></div></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mo-scr" data-s="pull">
+                  <div class="mo-col">
+                    <p class="mo-t">Accounts<small>Pull to fetch all data</small></p>
+                    <div class="mo-ptr">
+                      <span class="spin" aria-hidden="true"></span>
+                      <ul class="mo-list body">
+                        <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 9h16M4 9l8-5 8 5M6 9v8M10 9v8M14 9v8M18 9v8M3 19h18"/></svg></span><span class="nm">Savings</span><span class="am">A$ 12,301.50</span></li>
+                        <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="7" width="18" height="12" rx="3"/><path d="M15 13h3"/></svg></span><span class="nm">Cash</span><span class="am">A$ 240.00</span></li>
+                        <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></span><span class="nm">Credit card</span><span class="am neg">−A$ 1,033.20</span></li>
+                        <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 3v18M7 8l5-5 5 5M5 21h14"/></svg></span><span class="nm">Super</span><span class="am">A$ 44,120.00</span></li>
+                        <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg></span><span class="nm">Holiday fund</span><span class="am">A$ 1,000.00</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mo-scr" data-s="toast">
+                  <div class="mo-col">
+                    <p class="mo-t">Edit account</p>
+                    <div class="mo-inp"><div class="fg"><div class="k">Account name</div><div class="v">Holiday fund</div></div><div class="fg"><div class="k">Currency</div><div class="v">AUD · Australian dollar</div></div><div class="fg"><div class="k">Colour</div><div class="v">Ocean</div></div></div>
+                    <div class="mo-foot up"><button class="mo-btn" type="button" data-fire>Save</button></div>
+                  </div>
+                  <div class="mo-toast fg" role="status" aria-live="polite"><span class="ok" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg></span>Saved</div>
+                </div>
+
+                <div class="mo-scr" data-s="modal">
+                  <div class="mo-col">
+                    <p class="mo-t">Contacts</p>
+                    <ul class="mo-list">
+                      <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span class="nm">Mia Chen<small>Pays you back for dinners</small></span></li>
+                      <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span class="nm">Tom Reilly<small>Rent, split three ways</small></span></li>
+                    </ul>
+                    <div class="mo-foot"><button class="mo-btn ghost" type="button" data-open>Remove Mia</button></div>
+                  </div>
+                  <div class="mo-scrim" aria-hidden="true"><div class="mo-modal lg" role="dialog"><h4>Remove contact?</h4><p>Mia Chen leaves your contacts. This can’t be undone.</p><div class="acts"><button class="mo-btn ghost" type="button" data-close>Cancel</button><button class="mo-btn" type="button" data-close>Remove</button></div></div></div>
+                </div>
+
+                <div class="mo-scr" data-s="sheet">
+                  <div class="mo-col">
+                    <p class="mo-t">Accounts</p>
+                    <ul class="mo-list">
+                      <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 9h16M4 9l8-5 8 5M6 9v8M10 9v8M14 9v8M18 9v8M3 19h18"/></svg></span><span class="nm">Savings</span><span class="am">A$ 12,301.50</span></li>
+                      <li class="mo-row fg"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="7" width="18" height="12" rx="3"/><path d="M15 13h3"/></svg></span><span class="nm">Cash</span><span class="am">A$ 240.00</span></li>
+                    </ul>
+                    <div class="mo-foot"><button class="mo-btn" type="button" data-open>＋ Create a new account</button></div>
+                  </div>
+                  <div class="mo-sw" aria-hidden="true">
+                    <span class="sc"></span>
+                    <div class="mo-sheet lg" role="dialog">
+                      <span class="handle" aria-hidden="true"></span>
+                      <div class="hd"><button class="back" type="button" aria-label="Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><span class="ttl">Create a new account</span></div>
+                      <div class="win"><div class="track">
+                        <div class="step"><div class="fg"><div class="k">Institution / bank *</div><div class="v">ANZ</div></div><div class="fg"><div class="k">Currency *</div><div class="v">AUD · Australian dollar</div></div><div class="acts"><button class="mo-btn" type="button" data-next>Next</button></div></div>
+                        <div class="step"><div class="fg"><div class="k">Opening balance *</div><div class="v">A$ 1,000.00</div></div><div class="fg"><div class="k">Date</div><div class="v">24 Sep 2026</div></div><div class="acts"><button class="mo-btn ghost" type="button" data-close>Cancel</button><button class="mo-btn" type="button" data-close>Save</button></div></div>
+                      </div></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mo-scr" data-s="reorder">
+                  <div class="mo-col">
+                    <p class="mo-t">Edit navigation<small>Home stays first</small></p>
+                    <ul class="mo-list mo-rl">
+                      <li class="mo-row fg lock"><span class="grip" aria-hidden="true"><svg viewBox="0 0 12 14" fill="currentColor"><circle cx="3.5" cy="2" r="1.4"/><circle cx="8.5" cy="2" r="1.4"/><circle cx="3.5" cy="7" r="1.4"/><circle cx="8.5" cy="7" r="1.4"/><circle cx="3.5" cy="12" r="1.4"/><circle cx="8.5" cy="12" r="1.4"/></svg></span><span class="nm">Home</span><span class="tag">Locked</span></li>
+                      <li class="mo-row fg"><span class="grip" aria-label="Drag to reorder"><svg viewBox="0 0 12 14" fill="currentColor"><circle cx="3.5" cy="2" r="1.4"/><circle cx="8.5" cy="2" r="1.4"/><circle cx="3.5" cy="7" r="1.4"/><circle cx="8.5" cy="7" r="1.4"/><circle cx="3.5" cy="12" r="1.4"/><circle cx="8.5" cy="12" r="1.4"/></svg></span><span class="nm">Accounts</span></li>
+                      <li class="mo-row fg"><span class="grip" aria-label="Drag to reorder"><svg viewBox="0 0 12 14" fill="currentColor"><circle cx="3.5" cy="2" r="1.4"/><circle cx="8.5" cy="2" r="1.4"/><circle cx="3.5" cy="7" r="1.4"/><circle cx="8.5" cy="7" r="1.4"/><circle cx="3.5" cy="12" r="1.4"/><circle cx="8.5" cy="12" r="1.4"/></svg></span><span class="nm">Transactions</span></li>
+                      <li class="mo-row fg"><span class="grip" aria-label="Drag to reorder"><svg viewBox="0 0 12 14" fill="currentColor"><circle cx="3.5" cy="2" r="1.4"/><circle cx="8.5" cy="2" r="1.4"/><circle cx="3.5" cy="7" r="1.4"/><circle cx="8.5" cy="7" r="1.4"/><circle cx="3.5" cy="12" r="1.4"/><circle cx="8.5" cy="12" r="1.4"/></svg></span><span class="nm">Budget</span></li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="mo-scr" data-s="credit">
+                  <div class="mo-col">
+                    <p class="mo-t">Rewards<small>The balance rolls like a counter; the card catches the light</small></p>
+                    <div class="cc lg" aria-label="Gold credits card">
+                      <span class="waves" aria-hidden="true"></span><span class="glare" aria-hidden="true"><span class="beam"></span></span>
+                      <p class="lbl">Gold credits</p>
+                      <div class="val"><span class="odo" aria-live="polite" aria-label="3,200"></span><span class="unit">CrG</span></div>
+                      <p class="sub"><span class="k">Last change</span><span class="v">just now</span></p>
+                    </div>
+                    <div class="cc-acts"><button class="mo-btn" type="button" data-d="250"><b>+250</b><small>earned</small></button><button class="mo-btn" type="button" data-d="25000"><b>+25,000</b><small>added</small></button><button class="mo-btn ghost" type="button" data-d="-25000"><b>−25,000</b><small>redeemed</small></button></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <span class="mono chip">Live · CSS + pointer events</span><span class="mono hint">Tap a segment, try 1 to 3</span>
+        </div>
+        <div class="cap">
+          <h3>Motion scenarios</h3>
+          <p>Nine interaction patterns from the motion spec I wrote for the GLOSS Vault design system, among them a toggle, a toast, a sheet, a swipe and a rolling balance. Each runs here at exactly the duration and curve the spec gives it, re-dressed in frosted and liquid glass. Pick one and try it.</p>
+          <p class="mono meta">2026 · GLOSS DS 2.1 · eight durations, six curves</p>
+          <div class="mo-spec"><p class="mo-name"></p><p class="mo-note"></p><p class="mono mo-meta"></p></div>
+        </div>
+      </article>
+      <article class="lab-card" data-exp="card" style="--d:60ms">
+        <div class="media"><div class="stage card"><div class="card-3d"><img class="card-shade" src="assets/img/lab/card-col.webp" alt="" aria-hidden="true" decoding="async" loading="lazy"><div class="card-disc"><img class="card-art" src="assets/img/lab/card-col.webp" alt="An Art Nouveau relief card of Xiaxia: a grey tabby in a bow tie among lilies, under a crescent moon and a star" width="543" height="724" decoding="async" loading="lazy"><canvas aria-hidden="true"></canvas></div></div></div><span class="mono chip">Live · WebGL</span><span class="mono hint">Move across it</span></div>
+        <div class="cap"><div class="cap-head"><h3>Card</h3><a class="mono dl" href="assets/lab/relief-card.md" download="relief-card.md">Download the skill ↓</a></div><p>Xiaxia is the cat I love most. She’s a friend’s cat, and she stays with me three or four months a year. Move your cursor: a small lamp follows it, and the gold and fur shine where it falls. I packaged the whole process as a reusable Claude skill: it checks the picture, writes the prompt for the relief and its three maps, and sets up the lighting. Download it above.</p><p class="mono meta">2026 · WebGL · four maps, one fragment shader</p></div>
+      </article>
+      <article class="lab-card" data-exp="holo" style="--d:120ms">
+        <div class="media"><button class="stage holo" type="button" aria-pressed="false" aria-label="Turn the card over"><img class="holo-poster" src="assets/img/lab/holo-poster.webp" alt="A holographic trading card of Kari: a girl with cat ears and long green hair, a burning card in her hand and a crescent moon behind her, inside an ornate gold frame" width="480" height="720" decoding="async" loading="lazy"></button><span class="mono chip">Live · WebGL</span><span class="mono hint">Move across it · click to flip</span></div>
+        <div class="cap"><h3>Holo card</h3><p>Kari, an original character of mine, as a holographic trading card. The picture is five layers: the background, Kari, the sparks, her line art and the gold frame. They sit at different depths, so as the card tilts they slide past one another while the frame stays put. The rainbow foil isn’t painted on: it is worked out from the angle you look at it from, so it moves when you do. Built as a Blender scene, exported as real card geometry and lit again in the browser. Click it to turn it over.</p><p class="mono meta">2026 · Blender → Three.js · five layers, one foil</p></div>
+      </article>
+      <article class="lab-card" data-exp="silk" style="--d:180ms">
+        <div class="media"><div class="stage silk"></div><span class="mono chip">Live · WebGL</span><span class="mono hint">Move across it</span></div>
+        <div class="cap"><h3>Silk</h3><p>The cloth at the top of this page. One fragment shader: folds from simplex noise, two ghost cursors that keep it breathing when nobody touches it, and a touch that presses in and drags along.</p><p class="mono meta">2026 · GLSL · one fragment shader</p></div>
+      </article>
+      <article class="lab-card" data-exp="mark" style="--d:240ms">
+        <div class="media"><button class="stage mark" type="button" data-replay aria-label="Draw the mark again"><span class="hx-mark" data-variant="silk" data-weight="9" data-draw="off" aria-hidden="true"></span></button><span class="mono chip">Live · Canvas</span><span class="mono hint">Click · it draws again</span></div>
+        <div class="cap"><h3>HX mark</h3><p>My initial as one continuous line, generated from a curvature script rather than drawn by hand, then lit like satin thread. The highlight follows your cursor.</p><p class="mono meta">2026 · Python generator → 30 béziers · Canvas</p></div>
+      </article>
+      <article class="lab-card" data-exp="moon" style="--d:300ms">
+        <div class="media"><div class="stage moon"><span class="fake link" data-t="link">Email ↗</span><span class="fake tile" data-t="tile" data-cursor="Read case study">A case study</span><span class="mm" aria-hidden="true"><span class="mm-disc"><svg viewBox="0 0 12 12"><defs><mask id="mm-mask" maskUnits="userSpaceOnUse" x="-1" y="-1" width="14" height="14"><rect x="-1" y="-1" width="14" height="14" fill="#fff"/><circle class="mm-cut" cx="3.96" cy="6" r="5" fill="#000"/></mask></defs><circle cx="6" cy="6" r="6" fill="var(--moon)" mask="url(#mm-mask)"/></svg><span class="mm-label"></span></span></span></div><span class="mono chip">Live · CSS + JS</span></div>
+        <div class="cap"><h3>Moon cursor</h3><p>A crescent that trails the pointer. Over a link it slides into a full moon; over a tile it grows and says what a click will do.</p><p class="mono meta">2026 · one SVG, three states</p></div>
+      </article>
+      <article class="lab-card" data-exp="wipe" style="--d:360ms">
+        <div class="media"><div class="stage wipe"><div class="wp base" data-mode="light" aria-hidden="true"><i class="t"></i><i class="a"></i><i class="s"></i><i class="m"></i></div><div class="wp top" data-mode="dark" aria-hidden="true"><i class="t"></i><i class="a"></i><i class="s"></i><i class="m"></i></div><button class="wp-btn" type="button" aria-label="Switch the small page's colour mode"></button></div><span class="mono chip">Live · View Transitions</span><span class="mono hint">Click the dot</span></div>
+        <div class="cap"><h3>Colour wipe</h3><p>Switching colour mode spreads the new colours out from the button in a growing circle instead of a cross-fade: a same-document View Transition with an animated clip-path.</p><p class="mono meta">2026 · View Transitions API · clip-path</p></div>
+      </article>
+      <article class="lab-card ba-card" data-exp="colour-tiles" style="--d:420ms">
+        <div class="media"><figure class="stage ba" style="--x:50%">
+          <img class="after" src="assets/img/lab/colour-tiles-after.webp" alt="After: the same two tiles as frosted glass washed with teal and violet, with thin oversized numbers" width="1600" height="1000" loading="lazy" decoding="async">
+          <img class="before" src="assets/img/lab/colour-tiles-before.webp" alt="Before: two flat white summary tiles with tinted icon squares over a blurred black-and-white photo" width="1600" height="1000" loading="lazy" decoding="async">
+          <span class="ba-line" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 8-4 4 4 4M15 8l4 4-4 4"/></svg></span></span><span class="mono ba-tag b" aria-hidden="true">Before</span><span class="mono ba-tag a" aria-hidden="true">After</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Recurring: compare before and after">
+        </figure><span class="mono chip">Hierarchy · Figma</span><span class="mono hint">Move across it</span></div>
+        <div class="cap"><h3>Recurring</h3><p>Two summary cards rebuilt around one number each: the count leads, thin and oversized, and the label and details step back beneath it, all on frosted glass lit by diffused colour.</p><p class="mono meta">2026 · Figma · before / after</p></div>
+      </article>
+      <article class="lab-card ba-card" data-exp="colour-calendar" style="--d:480ms">
+        <div class="media"><figure class="stage ba" style="--x:50%">
+          <img class="after" src="assets/img/lab/colour-calendar-after.webp" alt="After: the restyled payment calendar: an open grid, today in a black circle, the two due dates in lime, and a dotted list of what is due underneath" width="1600" height="1000" loading="lazy" decoding="async">
+          <img class="before" src="assets/img/lab/colour-calendar-before.webp" alt="Before: the original payment calendar: every day in an outlined box, today outlined in teal and small blue dots under the due dates" width="1600" height="1000" loading="lazy" decoding="async">
+          <span class="ba-line" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 8-4 4 4 4M15 8l4 4-4 4"/></svg></span></span><span class="mono ba-tag b" aria-hidden="true">Before</span><span class="mono ba-tag a" aria-hidden="true">After</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Payment calendar: compare before and after">
+        </figure><span class="mono chip">Colour experiment · Figma</span><span class="mono hint">Move across it</span></div>
+        <div class="cap"><h3>Payment calendar</h3><p>January on the phone, without a box around every day: due dates turn lime, today sits in black, and a dotted list underneath says what’s due.</p><p class="mono meta">2026 · Figma · before / after</p></div>
+      </article>
+      <article class="lab-card wide ba-card" data-exp="colour-today" style="--d:540ms; --ar:1440 / 1024">
+        <div class="media">
+        <figure class="stage ba" data-view="today" data-skin="glass" style="--x:50%">
+          <img class="after" src="assets/img/lab/colour-today-glass.webp" alt="After, liquid glass: the home screen on a pale blue-grey canvas, with frosted white cards, a pill navigation, the balance in thin oversized numerals, five glass orbs for the accounts" width="2400" height="1707" loading="lazy" decoding="async" data-view="today" data-skin="glass">
+          <img class="after" src="assets/img/lab/colour-today-flat.webp" alt="After, flat: the same home screen in GLOSS’s own colours, with white cards on light grey, teal for the selected period and the largest account, a charcoal chart card" width="2400" height="1707" loading="lazy" decoding="async" data-view="today" data-skin="flat">
+          <img class="before" src="assets/img/lab/colour-today-before.webp" alt="Before: the shipped home screen, with a sidebar, the balance in a green card, account bubbles and an account list" width="2400" height="1707" loading="lazy" decoding="async" data-view="today">
+          <div class="ba-nums urbanist" data-view="today" data-skin="glass" aria-hidden="true">
+            <span class="n ba-amt" style="--l:36;--t:228;--fs:148;--lh:150;--ls:-0.035;--c:#1B2531;--cd:#7A8491" data-v="13813.31" data-d="2"><span class="i">13,813</span><span class="d">.31</span></span>
+            <span class="n" style="--l:36;--t:418;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="5" data-d="0">5</span>
+            <span class="n" style="--l:237;--t:416;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="4.55" data-d="2">4.55</span>
+            <span class="n" style="--l:418;--t:418;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="36" data-d="0">36</span>
+            <span class="n" style="--l:576;--t:416;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="4.5" data-d="2" data-p="≈">≈4.50</span>
+          </div>
+          <div class="ba-nums poppins" data-view="today" data-skin="flat" aria-hidden="true">
+            <span class="n ba-amt" style="--l:32;--t:220;--fs:80;--lh:92;--ls:-0.02;--c:#1C2024;--cd:#1C2024" data-v="13813.31" data-d="2"><span class="i">13,813</span><span class="d">.31</span></span>
+            <span class="n" style="--l:50;--t:392;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="5" data-d="0">5</span>
+            <span class="n" style="--l:268;--t:392;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="4.55" data-d="2">4.55</span>
+            <span class="n" style="--l:486;--t:392;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="36" data-d="0">36</span>
+            <span class="n" style="--l:704;--t:392;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="4.5" data-d="2" data-p="≈">≈4.50</span>
+          </div>
+          <span class="ba-line" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 8-4 4 4 4M15 8l4 4-4 4"/></svg></span></span><span class="mono ba-tag b" aria-hidden="true">Before</span><span class="mono ba-tag a" aria-hidden="true">After</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Home, today: compare before and after">
+          <div class="ba-ctl"><span class="ba-seg" role="group" aria-label="Style"><button type="button" data-skin="glass" aria-pressed="true">Liquid glass</button><button type="button" data-skin="flat" aria-pressed="false">Flat</button></span></div>
+        </figure>
+        <span class="mono chip">Layout &amp; colour · Figma</span><span class="mono hint">Move across it</span></div>
+        <div class="cap"><h3>Home, today</h3><p>The home screen, restyled two ways on the layout that shipped: a frosted, light-catching version, and a flat one in GLOSS’s own colours. Drag to compare either with the live screen; switch between them at the top right.</p><p class="mono meta">2026 · Figma · before / after</p></div>
+      </article>
+      <article class="lab-card wide ba-card" data-exp="colour-past" style="--d:600ms; --ar:1440 / 1024">
+        <div class="media">
+        <figure class="stage ba" data-view="past" data-skin="glass" style="--x:50%">
+          <img class="after" src="assets/img/lab/colour-past-glass.webp" alt="After, liquid glass: the past view, with the closing balance in thin numerals, four tagged figures, a weekly balance line and a per-account bar on frosted cards" width="2400" height="1707" loading="lazy" decoding="async" data-view="past" data-skin="glass">
+          <img class="after" src="assets/img/lab/colour-past-flat.webp" alt="After, flat: the past view in GLOSS’s own colours, with orange for the selected period, four stat cards, a charcoal chart card with the weekly line" width="2400" height="1707" loading="lazy" decoding="async" data-view="past" data-skin="flat">
+          <img class="before" src="assets/img/lab/colour-past-before.webp" alt="Before: the shipped past view, with an orange tab, the closing balance in a green card, a per-account list and the transactions" width="2400" height="1707" loading="lazy" decoding="async" data-view="past">
+          <div class="ba-nums urbanist" data-view="past" data-skin="glass" aria-hidden="true">
+            <span class="n ba-amt" style="--l:36;--t:220;--fs:148;--lh:150;--ls:-0.035;--c:#1B2531;--cd:#7A8491" data-v="4730.34" data-d="2"><span class="i">4,730</span><span class="d">.34</span></span>
+            <span class="n" style="--l:36;--t:410;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="242" data-d="0">242</span>
+            <span class="n" style="--l:206;--t:408;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="5762.7" data-d="2">5,762.70</span>
+            <span class="n" style="--l:384;--t:410;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="1850.0" data-d="2">1,850.00</span>
+            <span class="n" style="--l:555;--t:408;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="2880.34" data-d="2" data-p="+">+2,880.34</span>
+          </div>
+          <div class="ba-nums poppins" data-view="past" data-skin="flat" aria-hidden="true">
+            <span class="n ba-amt" style="--l:32;--t:212;--fs:80;--lh:92;--ls:-0.02;--c:#1C2024;--cd:#1C2024" data-v="4730.34" data-d="2"><span class="i">4,730</span><span class="d">.34</span></span>
+            <span class="n" style="--l:50;--t:384;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="242" data-d="0">242</span>
+            <span class="n" style="--l:268;--t:384;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="5762.7" data-d="2">5,762.70</span>
+            <span class="n" style="--l:486;--t:384;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="1850.0" data-d="2">1,850.00</span>
+            <span class="n" style="--l:704;--t:384;--fs:26;--lh:36;--ls:-0.01;--c:#3E9B4F" data-v="2880.34" data-d="2" data-p="+">+2,880.34</span>
+          </div>
+          <span class="ba-line" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 8-4 4 4 4M15 8l4 4-4 4"/></svg></span></span><span class="mono ba-tag b" aria-hidden="true">Before</span><span class="mono ba-tag a" aria-hidden="true">After</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Home, past: compare before and after">
+          <div class="ba-ctl"><span class="ba-seg" role="group" aria-label="Style"><button type="button" data-skin="glass" aria-pressed="true">Liquid glass</button><button type="button" data-skin="flat" aria-pressed="false">Flat</button></span></div>
+        </figure>
+        <span class="mono chip">Data visualisation · Figma</span><span class="mono hint">Move across it</span></div>
+        <div class="cap"><h3>Home, past</h3><p>Ten months of balances, read in layers: the closing figure on top, four tagged numbers under it (transactions, highest and lowest close, change since October), and below them a weekly line and one bar that splits the total by account.</p><p class="mono meta">2026 · Figma · before / after</p></div>
+      </article>
+      <article class="lab-card" data-exp="credit" style="--d:660ms">
+        <div class="media"><div class="stage credit">
+          <span class="orb" aria-hidden="true"></span>
+          <div class="cc lg" aria-label="Gold credits card">
+            <span class="waves" aria-hidden="true"></span><span class="glare" aria-hidden="true"><span class="beam"></span></span>
+            <p class="lbl">Gold credits</p>
+            <div class="val"><span class="odo" aria-live="polite" aria-label="3,200"></span><span class="unit">CrG</span></div>
+            <p class="sub"><span class="k">Last change</span><span class="v">just now</span></p>
+          </div>
+          <div class="cc-acts"><button class="mo-btn" type="button" data-d="250"><b>+250</b><small>earned</small></button><button class="mo-btn" type="button" data-d="25000"><b>+25,000</b><small>added</small></button><button class="mo-btn ghost" type="button" data-d="-25000"><b>−25,000</b><small>redeemed</small></button></div>
+        </div><span class="mono chip">Live · CSS + rAF</span><span class="mono hint">Press a button</span></div>
+        <div class="cap"><h3>Credit card</h3><p>The rewards card from GLOSS Vault, as a glass object. Every change rolls each digit to its new value and sends one reflection across the card, at the timings from the card-motion spec I wrote for it. Add or redeem credits to see it.</p><p class="mono meta">2026 · GLOSS DS 2.1 · 700ms roll, 900ms glare</p></div>
+      </article>
+    </div>
+  </section>
+</div>
+
+<footer class="site-foot" id="contact">
+  <div class="cta has-fold">
+    <div class="say">
+      <h2>Working on something interesting?<br>I’d like to hear about it.</h2>
+    </div>
+    <div class="fold-slot">
+      <div class="fold" data-fold data-auto="end">
+        <div class="fold-ground" aria-hidden="true"></div>
+        <button class="fold-hit" type="button" aria-expanded="false" aria-controls="fold-inside" data-grab><span class="fold-cue" data-cursor="Open the card"></span><span class="fold-sr">Open the card</span></button>
+        <div class="fold-page fold-base" id="fold-inside">
+          <div class="fold-paper">
+            <span class="fold-mark hx-mark" data-variant="ink" data-weight="9" data-draw="off" aria-hidden="true"></span>
+            <span class="fold-tag">harrietxu.com</span>
+            <ul class="fold-links">
+              <li><a href="mailto:harriet.xu01@gmail.com?subject=Hello%20Harriet" data-contact><span>Email</span><span>harriet.xu01@gmail.com</span></a></li>
+              <li><a href="https://www.linkedin.com/in/harrietxu" target="_blank" rel="noopener"><span>LinkedIn</span><span>in/harrietxu ↗</span></a></li>
+              <li><a href="assets/resume/Harriet-Xu-Product-Designer.pdf" target="_blank" rel="noopener"><span>Resume</span><span>PDF ↓</span></a></li>
+            </ul>
+            <p class="fold-id"><b>Harriet Xu</b><span>Product Designer</span></p>
+          </div>
+          <i class="fold-shade"></i><i class="fold-rim"></i>
+        </div>
+        <i class="fold-slab" aria-hidden="true"></i>
+        <div class="fold-page fold-front" aria-hidden="true">
+          <div class="fold-paper">
+            <span class="fold-mark hx-mark" data-variant="ink" data-weight="9" data-draw="off" aria-hidden="true"></span>
+            <span class="fold-tag">harrietxu.com</span>
+            <p class="fold-id"><b>Harriet Xu</b><span>Product Designer</span></p>
+          </div>
+          <span class="fold-blur"></span><i class="fold-shade"></i><i class="fold-rim"></i>
+        </div>
+        <div class="fold-page fold-back">
+          <div class="fold-paper">
+            <img class="fold-face" src="assets/img/all/card-face.jpg" width="256" height="256" alt="Harriet Xu" loading="lazy" decoding="async" draggable="false">
+            <div class="fold-say"><p>A product designer who makes the complex <em>clear</em>.</p><span>Fintech · Sydney</span></div>
+          </div>
+          <span class="fold-blur"></span><i class="fold-shade"></i><i class="fold-rim"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fine mono"><p>© 2026 Harriet Xu</p><p>Sydney, Australia · Designed in Figma, written in HTML</p></div>
+</footer>
+
+<script src="js/fold-card.js"></script>
+<script src="js/site.js"></script>
+<script src="js/motion.js"></script>
+<script src="js/tile-video.js"></script>
+<script type="x-shader/x-fragment" id="frag">
+precision highp float;
+uniform vec2  uRes;
+uniform float uTime;
+uniform vec3  uC0;
+uniform vec3  uC1;
+uniform vec3  uC2;
+uniform vec3  uC3;
+uniform vec3  uC4;
+uniform vec3  uC5;
+uniform float uScale;
+uniform float uFold;
+uniform float uFade;
+uniform vec2  uOffset;
+uniform vec4  uTrail[10];
+uniform float uAmp[10];
+uniform float uDentR;
+uniform float uIdleR;
+uniform float uIdleDepth;
+uniform float uIdleDrag;
+uniform float uDentDepth;
+uniform float uDragR;
+uniform float uDrag;
+uniform float uFreq;
+
+vec3 mod289(vec3 x){return x-floor(x*(1.0/289.0))*289.0;}
+vec2 mod289(vec2 x){return x-floor(x*(1.0/289.0))*289.0;}
+vec3 permute(vec3 x){return mod289(((x*34.0)+1.0)*x);}
+float snoise(vec2 v){
+  const vec4 C=vec4(0.211324865405187,0.366025403784439,-0.577350269189626,0.024390243902439);
+  vec2 i=floor(v+dot(v,C.yy)); vec2 x0=v-i+dot(i,C.xx);
+  vec2 i1=(x0.x>x0.y)?vec2(1.0,0.0):vec2(0.0,1.0);
+  vec4 x12=x0.xyxy+C.xxzz; x12.xy-=i1; i=mod289(i);
+  vec3 p=permute(permute(i.y+vec3(0.0,i1.y,1.0))+i.x+vec3(0.0,i1.x,1.0));
+  vec3 m=max(0.5-vec3(dot(x0,x0),dot(x12.xy,x12.xy),dot(x12.zw,x12.zw)),0.0); m=m*m; m=m*m;
+  vec3 x=2.0*fract(p*C.www)-1.0; vec3 h=abs(x)-0.5; vec3 ox=floor(x+0.5); vec3 a0=x-ox;
+  m*=1.79284291400159-0.85373472095314*(a0*a0+h*h);
+  vec3 g; g.x=a0.x*x0.x+h.x*x0.y; g.yz=a0.yz*x12.xz+h.yz*x12.yw;
+  return 130.0*dot(m,g);
+}
+
+vec2 drag(vec2 p, float asp){
+  vec2 q = p;
+  for (int i = 0; i < 10; i++) {
+    if (uAmp[i] <= 0.0) continue;
+    vec2 c = (uTrail[i].xy - 0.5) * vec2(asp, 1.0) * uScale + uOffset;
+    vec2 v = uTrail[i].zw * vec2(asp, 1.0) * uScale; float sp = length(v); v *= min(1.0, 1.0 / max(sp, 1e-4));
+    vec2 d = q - c; bool touch = i < 8; q -= v * uAmp[i] * exp(-dot(d, d) / (touch ? uDragR : uIdleR * 1.8)) * (touch ? uDrag : uIdleDrag);
+  }
+  return q;
+}
+float dent(vec2 p, float asp){
+  float s = 0.0;
+  for (int i = 0; i < 10; i++) {
+    if (uAmp[i] <= 0.0) continue;
+    vec2 c = (uTrail[i].xy - 0.5) * vec2(asp, 1.0) * uScale + uOffset;
+    vec2 d = p - c; bool touch = i < 8; s += uAmp[i] * exp(-dot(d, d) / (touch ? uDentR : uIdleR)) * (touch ? uDentDepth : uIdleDepth);
+  }
+  return s;
+}
+float height(vec2 p, float t, float asp){
+  vec2 q = drag(p, asp);
+  q += 0.34*vec2(snoise(q*0.30 + t*0.20), snoise(q*0.30 + 7.1 - t*0.17));
+  float h = 0.0;
+  h += 0.66*sin(dot(q, vec2(1.75, 1.30)*uFreq) + 1.9*snoise(q*0.26 + t*0.15));
+  h += 0.24*sin(dot(q, vec2(2.90, 0.95)*uFreq) + 2.2*snoise(q*0.38 - t*0.20) + 1.7);
+  h += 0.05*sin(dot(q, vec2(4.60, 2.30)*uFreq) + 1.5*snoise(q*0.55 + t*0.25) + 4.0);
+  return h - dent(p, asp);
+}
+
+void main(){
+  vec2 uv = gl_FragCoord.xy / uRes;
+  float asp = uRes.x / uRes.y;
+  vec2 p  = (uv - 0.5) * vec2(asp, 1.0) * uScale + uOffset;
+  float t = uTime;
+
+  float e = 0.0025*uScale;
+  float h  = height(p, t, asp);
+  float hx = height(p + vec2(e,0.0), t, asp) - h;
+  float hy = height(p + vec2(0.0,e), t, asp) - h;
+  vec3 n = normalize(vec3(-hx/e*0.55, -hy/e*0.55, 1.0));
+
+  vec3 L = normalize(vec3(-0.45, 0.55, 0.70));
+  vec3 Hh = normalize(L + vec3(0.0, 0.0, 1.0));
+  float diff = dot(n, L);
+  float spec = pow(max(dot(n, Hh), 0.0), 38.0);
+  float rim  = pow(1.0 - n.z, 1.6);
+
+  float side = smoothstep(0.20, 0.90, uv.x);
+  vec3 col = mix(uC2, uC1, smoothstep(-0.15, 0.95, diff));
+  col = mix(col, uC3, clamp(rim*1.7, 0.0, 1.0) * (1.0 - smoothstep(-0.2, 0.75, diff)) * mix(0.25, 1.0, side));
+  col = mix(col, uC5, 0.35*(1.0-side));
+  col = mix(col, uC4, clamp(spec*uFold*1.3, 0.0, 1.0) * mix(0.35, 1.0, side));
+
+  col = mix(col, uC0, smoothstep(1.0 - uFade, 1.0, 1.0 - uv.y));
+  float nse = fract(sin(dot(gl_FragCoord.xy, vec2(12.9898,78.233)))*43758.5453);
+  col += (nse-0.5)/255.0;
+  gl_FragColor = vec4(col, 1.0);
+}
+</script>
+<script>
+(() => {
+  const root = document.documentElement, hero = document.getElementById('hero'), canvas = document.getElementById('silk');
+
+  let glowRaf = 0;
+  addEventListener('pointermove', (e) => { if (glowRaf) return; glowRaf = requestAnimationFrame(() => { glowRaf = 0;
+    const t = e.target.closest && e.target.closest('.tile'); if (t) { const r = t.getBoundingClientRect(); t.style.setProperty('--mx', (e.clientX - r.left) + 'px'); t.style.setProperty('--my', (e.clientY - r.top) + 'px'); } }); }, { passive: true });
+  const io = new IntersectionObserver((es) => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const DEFAULTS = { speed:0.06, folds:1.0, sheen:0.70, idle:0.50, idleSpeed:1.0, radius:0.09, depth:0.12, drag:0.08, lag:0.85, recover:1600 };
+  const P = Object.assign({}, DEFAULTS); window.__silkParams = P;
+  let kick = () => {};
+
+  const still = matchMedia('(prefers-reduced-motion: reduce)');
+  if (still.matches) { canvas.remove(); return; }
+  const gl = canvas.getContext('webgl', { antialias:false, alpha:false, powerPreference:'low-power' });
+  if (!gl) { canvas.remove(); return; }
+  const sh = (type, src) => { const o = gl.createShader(type); gl.shaderSource(o, src); gl.compileShader(o); return gl.getShaderParameter(o, gl.COMPILE_STATUS) ? o : null; };
+  const vs = sh(gl.VERTEX_SHADER, 'attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}');
+  const fs = sh(gl.FRAGMENT_SHADER, document.getElementById('frag').textContent);
+  if (!vs || !fs) { canvas.remove(); return; }
+  const pr = gl.createProgram(); gl.attachShader(pr, vs); gl.attachShader(pr, fs); gl.linkProgram(pr); gl.useProgram(pr);
+  gl.bindBuffer(gl.ARRAY_BUFFER, gl.createBuffer()); gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+  const loc = gl.getAttribLocation(pr, 'a'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+  const U = n => gl.getUniformLocation(pr, n);
+  const hex = h => { h = h.trim(); return [1,3,5].map(i => parseInt(h.slice(i, i+2), 16) / 255); };
+  let foldBase = 0.7;
+  const readColours = () => { const cs = getComputedStyle(root); for (let k = 0; k <= 5; k++) gl.uniform3fv(U('uC' + k), hex(cs.getPropertyValue('--shader-' + k))); foldBase = parseFloat(cs.getPropertyValue('--shader-fold')); };
+  gl.uniform1f(U('uIdleR'), 0.20); gl.uniform1f(U('uIdleDepth'), 0.40); gl.uniform1f(U('uIdleDrag'), 0.30);
+  gl.uniform1f(U('uScale'), 1.6); gl.uniform1f(U('uFade'), 0.4); gl.uniform2f(U('uOffset'), -0.6, 0.0); readColours();
+
+  const T0 = 11.0;
+  const ATTACK = 160;
+  const N = 8, M = 10, trail = Array.from({ length: N }, () => ({ x:.5, y:.5, vx:0, vy:0, born:-1e9 }));
+  const T = new Float32Array(M * 4), A = new Float32Array(M);
+  const GHOSTS = [ { cx:.68, cy:.56, ax:.22, ay:.17, period:26, ph:0.0 }, { cx:.52, cy:.42, ax:.26, ay:.20, period:34, ph:2.1 } ];
+  let head = 0, target = null, sx = .5, sy = .5, svx = 0, svy = 0, lastPush = 0, lastFrame = 0, clockT = T0, ghostClock = 0;
+  hero.addEventListener('pointermove', (e) => { const r = hero.getBoundingClientRect(); const x = (e.clientX - r.left) / r.width, y = 1 - (e.clientY - r.top) / r.height; if (!target) { sx = x; sy = y; } target = { x, y }; kick(); }, { passive: true });
+  hero.addEventListener('pointerleave', () => { target = null; });
+
+  const size = () => { const dpr = Math.min(devicePixelRatio || 1, 1.5); const w = Math.round(hero.clientWidth * dpr), h = Math.round(hero.clientHeight * dpr); if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; gl.viewport(0, 0, w, h); gl.uniform2f(U('uRes'), w, h); } };
+  let visible = true, raf = 0; const t0 = performance.now();
+  const draw = (now) => {
+    size(); const dt = lastFrame ? Math.min((now - lastFrame) / 1000, 0.1) : 1 / 60; lastFrame = now;
+    clockT += dt * P.speed; ghostClock += dt * P.idleSpeed;
+    gl.uniform1f(U('uTime'), typeof window.__silkTime === 'number' ? window.__silkTime : clockT);
+    if (target) { const k = 1 - Math.pow(P.lag, dt * 60); const nx = sx + (target.x - sx) * k, ny = sy + (target.y - sy) * k; svx += 0.3 * ((nx - sx) / dt - svx); svy += 0.3 * ((ny - sy) / dt - svy); sx = nx; sy = ny;
+      if (now - lastPush > 45 && Math.hypot(svx, svy) > 0.004) { trail[head] = { x:sx, y:sy, vx:svx, vy:svy, born:now }; head = (head + 1) % N; lastPush = now; } }
+    const clock = typeof window.__silkNow === 'number' ? window.__silkNow : now;
+    trail.forEach((s, i) => { T[i*4] = s.x; T[i*4+1] = s.y; T[i*4+2] = s.vx; T[i*4+3] = s.vy; const age = clock - s.born; const a = (1 - Math.exp(-age / ATTACK)) * Math.exp(-age / P.recover); A[i] = a < 0.003 ? 0 : a; });
+    const easeIn = Math.min(1, (now - t0) / 2500); const idleAmp = window.__silkNoIdle ? 0 : P.idle * easeIn * easeIn * (3 - 2 * easeIn);
+    const gc = typeof window.__silkGhost === 'number' ? window.__silkGhost : ghostClock;
+    GHOSTS.forEach((g, j) => { const w = 2 * Math.PI / g.period, ph = gc * w + g.ph, i = N + j;
+      T[i*4] = g.cx + g.ax * Math.sin(ph); T[i*4+1] = g.cy + g.ay * Math.sin(2 * ph + 0.7); const vx = g.ax * Math.cos(ph), vy = g.ay * 2 * Math.cos(2 * ph + 0.7), vmax = Math.hypot(g.ax, g.ay * 2);
+      T[i*4+2] = vx / vmax * 0.5; T[i*4+3] = vy / vmax * 0.5; A[i] = idleAmp; });
+    gl.uniform4fv(U('uTrail[0]'), T); gl.uniform1fv(U('uAmp[0]'), A);
+    gl.uniform1f(U('uDentR'), P.radius); gl.uniform1f(U('uDentDepth'), P.depth); gl.uniform1f(U('uDragR'), P.radius * 1.8); gl.uniform1f(U('uDrag'), P.drag); gl.uniform1f(U('uFreq'), P.folds); gl.uniform1f(U('uFold'), foldBase * (P.sheen / 0.7));
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+    raf = (visible && !document.hidden) ? requestAnimationFrame(draw) : 0; if (!raf) lastFrame = 0;
+  };
+  kick = () => { if (!raf) raf = requestAnimationFrame(draw); };
+  addEventListener('themechange', () => { readColours(); kick(); });
+  new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) kick(); }).observe(hero);
+  document.addEventListener('visibilitychange', kick); addEventListener('resize', kick);
+  still.addEventListener('change', () => location.reload());
+  window.__silk = { ok: true }; kick();
+})();
+</script>
+<script src="js/lab.js"></script>
+<script src="js/ba.js"></script>
+<script src="js/lab-credit.js"></script>
+<script src="js/lab-motion.js"></script>
+</body>
+</html>

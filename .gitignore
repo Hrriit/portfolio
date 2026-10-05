@@ -1,0 +1,4 @@
+# System clutter only. Everything else in this folder is the website and is public.
+Thumbs.db
+desktop.ini
+.DS_Store

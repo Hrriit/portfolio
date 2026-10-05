@@ -1,0 +1,2 @@
+window.ABOUT_CAPTIONS = {
+};

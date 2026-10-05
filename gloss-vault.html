@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GLOSS Vault · Harriet Xu</title>
+<meta name="description" content="GLOSS Vault case study: an account-onboarding flow designed around what engineering couldn’t build, and the design system that keeps a personal-finance product consistent across two platforms and two colour modes.">
+<link rel="canonical" href="https://harrietxu.com/gloss-vault.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Harriet Xu">
+<meta property="og:title" content="GLOSS Vault · Harriet Xu">
+<meta property="og:description" content="GLOSS Vault case study: an account-onboarding flow designed around what engineering couldn’t build, and the design system that keeps a personal-finance product consistent across two platforms and two colour modes.">
+<meta property="og:url" content="https://harrietxu.com/gloss-vault.html">
+<meta property="og:image" content="https://harrietxu.com/assets/og/harriet-xu.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Harriet Xu, product designer in Sydney: a product designer who makes the complex clear.">
+<meta name="twitter:card" content="summary_large_image">
+<script>(function(){var l=location;if(l.protocol==='file:'||/^(localhost|127\.0\.0\.1|\[::1\])$/.test(l.hostname)||/[?&]slots=show\b/.test(l.search))document.documentElement.dataset.slots='show'})()</script>
+<script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')})()</script>
+<script>(function(){if(location.hash){var h=document.documentElement;h.style.scrollBehavior='auto';addEventListener('load',function(){requestAnimationFrame(function(){h.style.scrollBehavior=''})})}try{var p=JSON.parse(sessionStorage.getItem('pt')||'null');sessionStorage.removeItem('pt');if(p&&Date.now()-p.t<4000&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add(p.h?'pt-hold':'pt-in');window.__pt=p}}catch(e){}})()</script>
+<link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/Geist-Medium.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Newsreader-opsz.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/case.css">
+<link rel="stylesheet" href="css/fold-card.css">
+<link rel="stylesheet" href="css/ba.css">
+<script src="js/hx-mark.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="nav">
+  <div class="dock">
+  <nav class="tabbar glass" aria-label="Main">
+    <a class="brand" href="index.html"><span class="hx-mark" data-variant="silk" data-weight="11" aria-hidden="true"></span><span>Harriet Xu</span><span class="bar" aria-hidden="true"></span><span class="place">Sydney, AU</span></a>
+    <div class="links"><a href="index.html#work" aria-current="page">Work</a><a href="about.html">About</a></div>
+  </nav>
+  <div class="actions glass">
+    <a href="assets/resume/Harriet-Xu-Product-Designer.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.5v10M8 11l4 4 4-4M5.5 19h13"/></svg><span>Resume</span></a>
+    <a href="mailto:harriet.xu01@gmail.com?subject=Hello%20Harriet" data-contact><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="5.5" width="17" height="13" rx="2.5"/><path d="m4.5 8 7.5 5.5L19.5 8"/></svg><span>Get in touch</span></a>
+  </div>
+  </div>
+  <button id="theme" class="mode glass" type="button" aria-label="Switch colour mode">
+    <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+  </button>
+</div>
+<script>(function(){var m=document.querySelectorAll('.nav .hx-mark');if(window.__pt)m.forEach(function(n){n.dataset.draw='off'});if(window.HXMark)HXMark.init('.nav .hx-mark')})()</script>
+
+<main class="case" id="main">
+
+  <header class="case-head">
+    <a class="case-back" href="index.html#work" aria-label="Back to all work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>All work</span></a>
+    <p class="mono eyebrow">Case study · Fintech · Ironfly Technologies</p>
+    <h1>GLOSS Vault</h1>
+    <p class="dek">A personal-finance vault that has to behave across two platforms and two colour modes, with one designer owning every flow from brief to handoff.</p>
+    <dl class="facts">
+      <div><dt class="mono">Role</dt><dd>Sole product designer: discovery, flows, UI, design system, handoff</dd></div>
+      <div><dt class="mono">Timeline</dt><dd>Jul 2024 – present</dd></div>
+      <div><dt class="mono">Team</dt><dd>A PM, the engineering team, and one designer per flow. On GLOSS Vault that designer is me.</dd></div>
+      <div><dt class="mono">Scope</dt><dd>Desktop and mobile, light and dark</dd></div>
+    </dl>
+  </header>
+
+  <figure class="hero">
+    <div class="stage">
+      <img class="desk" src="assets/img/work/gloss-vault/01-home-desktop-light-today.png" alt="GLOSS Vault home screen on desktop: an asset bubble chart beside the account list" width="860" height="612">
+      <img class="phone" src="assets/img/work/gloss-vault/01-2-home-mobile-light-navbar.png" alt="The same home screen on a phone" width="236" height="511">
+    </div>
+    <figcaption>The home screen: every account in one place, as an asset bubble chart instead of a spreadsheet.</figcaption>
+  </figure>
+
+  <div class="bento promo" aria-label="Cuts from the launch promo">
+    <div class="row eq">
+      <figure class="fig vid" style="--ar:4/5"><video poster="assets/video/work/gloss-vault/promo-02-bubbles.jpg" muted loop playsinline preload="metadata" tabindex="0" aria-label="Promo clip: accounts arrive one by one and the asset bubbles grow"><source src="assets/video/work/gloss-vault/promo-02-bubbles.mp4" type="video/mp4"><source src="assets/video/work/gloss-vault/promo-02-bubbles.webm" type="video/webm"></video><figcaption>Accounts come in one by one, and the bubbles grow with them.</figcaption></figure>
+      <figure class="fig vid" style="--ar:4/5"><video poster="assets/video/work/gloss-vault/promo-03-past-today-future.jpg" muted loop playsinline preload="metadata" tabindex="0" aria-label="Promo clip: the Past, Today and Future tabs of the home screen"><source src="assets/video/work/gloss-vault/promo-03-past-today-future.mp4" type="video/mp4"><source src="assets/video/work/gloss-vault/promo-03-past-today-future.webm" type="video/webm"></video><figcaption>Past, Today, Future: the same screen at three points in time.</figcaption></figure>
+      <figure class="fig vid" style="--ar:4/5"><video poster="assets/video/work/gloss-vault/promo-04-search.jpg" muted loop playsinline preload="metadata" tabindex="0" aria-label="Promo clip: searching accounts and transactions, ending on the empty state"><source src="assets/video/work/gloss-vault/promo-04-search.mp4" type="video/mp4"><source src="assets/video/work/gloss-vault/promo-04-search.webm" type="video/webm"></video><figcaption>Search across accounts and transactions, down to the empty state.</figcaption></figure>
+      <div class="tile"><p class="mono">In motion</p><p>Three cuts from the promo I made for GLOSS Vault in 2025. It ran as a sponsored chapter in Irene Zhu’s <a href="https://www.youtube.com/watch?v=L8kssE4tVqQ&amp;t=168s" target="_blank" rel="noopener">The 11 Money Lies Keeping You Broke ↗</a>.</p></div>
+    </div>
+  </div>
+
+  <div class="intro-row"><p class="mono">Background</p><p>GLOSS Vault lets people pull their financial life (bank, credit, brokerage and “everything else” accounts) into one place, then budget and track against it. It’s an early-stage product built by a small team, and I’m the only designer.</p></div>
+  <div class="intro-row"><p class="mono">What I did</p><p>Requirements usually arrived as a single sentence: a goal, not a spec. There was no researcher, no design ops and no PRD, so I built my own process for every feature: clarify the goal with the PM, map the current flow, study how comparable products solve it, define the scope, then design. Desktop and mobile, light and dark, every time.</p></div>
+
+  <div class="case-body">
+
+    <section class="sec flow" aria-labelledby="s1">
+      <div class="sec-intro">
+        <p class="mono">01 · Add account</p>
+        <div class="text">
+          <h2 id="s1">Designing around what we couldn’t build</h2>
+          <div>
+            <p>The ideal: connect once, and let the API pull accounts and transactions automatically. The constraint: API coverage was uneven across regions and engineering was focused on the core product, so sync couldn’t reach every account. Alongside synced accounts, people can create one by hand (four account types, each with its own fields) and give it a balance and transactions.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bento">
+        <div class="row eq plate">
+          <figure class="fig" style="--span:2; --ar:384/273"><img src="assets/img/work/gloss-vault/02-add-account-1-type.png" alt="Add account, step 1: pick an account type, each explained with examples" loading="lazy"><figcaption>1 · Pick a type, explained with examples.</figcaption></figure>
+          <figure class="fig alt" style="--ar:282/418"><img src="assets/img/work/gloss-vault/02-add-account-1-type-mobile.png" alt="Step 1 of add account on a phone: choosing an account type" loading="lazy" style="object-position:50% 0"><figcaption>Step 1 on mobile.</figcaption></figure>
+          <div class="tile"><p class="mono">The decision</p><p>If entry has to be manual, make it hard to get wrong and easy to recover.</p></div>
+        </div>
+      </div>
+
+      <div class="beat">
+        <div class="sec-intro">
+          <p class="mono">The change</p>
+          <div class="text">
+            <div>
+              <p>The first version split this across two modals: one to find the bank (country first, then institution), then a second for the account itself. A modal only has so much room, and the second one was already full. I moved the flow into a side sheet and merged country and bank into one field, a country picker inside the bank search. A bank that isn’t listed can be added by hand from the same spot.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bento">
+          <div class="row" style="--cols:3">
+            <figure class="fig" style="--ar:1648/1448"><img src="assets/img/work/gloss-vault/02-0a-old-modal-find-bank.png" alt="The old flow, first modal: Find institution / bank, with Country and Institution / Bank as two separate fields and a Next button" loading="lazy"><figcaption>Before, 1 of 2: find the bank.</figcaption></figure>
+            <figure class="fig" style="--ar:1648/1448"><img src="assets/img/work/gloss-vault/02-0b-old-modal-create-account.png" alt="The old flow, second modal: Create a new account, with account name, currency, institution and account product" loading="lazy"><figcaption>Before, 2 of 2: the account.</figcaption></figure>
+            <figure class="fig alt" style="--ar:1648/1448"><img src="assets/img/work/gloss-vault/02-add-account-2-form.png" alt="Add account, step 2: one side sheet, with the country picker inside the Institution / Bank search and a link to add a missing bank by hand" loading="lazy" style="object-position:100% 50%"><figcaption>After, step 2: one side sheet, with country and bank in one field.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="beat">
+        <div class="sec-intro">
+          <p class="mono">Manual entry</p>
+          <div class="text">
+            <div>
+              <p>Transactions are entered one at a time and can be edited and categorised afterwards; an account can also keep an uploaded statement (PDF or spreadsheet) in its details for reference. When a balance goes in, GLOSS lines the running total up with it automatically and records the gap as an “Align” entry, which can be adjusted later. Going back keeps what you typed; cancelling clears it, but only after a confirmation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bento">
+          <div class="row eq plate">
+            <figure class="fig" style="--span:2; --ar:384/273"><img src="assets/img/work/gloss-vault/02-add-account-3-import-manual.png" alt="Add account, step 3: adding the first transactions" loading="lazy"><figcaption>3 · Add the first transactions by hand.</figcaption></figure>
+            <figure class="fig fit small" style="--span:2; --ar:1144/812; --plate:#FCFCFC"><img src="assets/img/work/gloss-vault/02-4b-balance-align.png" alt="The Past view's transactions for May 2025: two Align · Balance Reset rows keep the running balance in line with the balance entered" loading="lazy"><figcaption>Enter a balance and GLOSS lines the history up with it: the gap becomes an Align entry, open to adjustment.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="beat">
+        <div class="sec-intro">
+          <p class="mono">First-run guide</p>
+          <div class="text">
+            <div>
+              <p>Setup can be interrupted, too. The first time through, a guide walks people through each task with coach marks and pays GLOSS Credits for finishing it; a yellow dot on Help &amp; Guide brings them back to where they stopped. The dot belongs to that first run only. The guide can be replayed from Help &amp; Guide at any time, but a replay doesn’t earn credits again.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bento">
+          <div class="row" style="--cols:3">
+            <figure class="fig" style="--ar:384/273"><img src="assets/img/work/gloss-vault/03-2-help-guide-task-panel.png" alt="The Help & Guide task panel: four setup tasks, each with the GLOSS Credits it pays" loading="lazy"><figcaption>The first-run guide: a task list, each task worth GLOSS Credits.</figcaption></figure>
+            <figure class="fig" style="--ar:2880/2053"><img src="assets/img/work/gloss-vault/03-0b-guide-coach-mark-full.png" alt="A coach mark beside the Add New Account dialog: Add a manual account, select an account type to get started, step 1 of 4" loading="lazy"><figcaption>Coach marks walk through each task, one step at a time.</figcaption></figure>
+            <figure class="fig" style="--ar:384/273"><img src="assets/img/work/gloss-vault/03-1-help-guide-yellow-dot.png" alt="A yellow dot on the Help & Guide item in the navigation" loading="lazy"><figcaption>Stop half-way and a yellow dot on Help &amp; Guide marks the spot.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec flow" aria-labelledby="s2">
+      <div class="sec-intro">
+        <p class="mono">02 · Design system</p>
+        <div class="text">
+          <h2 id="s2">One hex, two jobs</h2>
+          <div>
+            <p>Two years and three major revisions had left geological layers of style. When I audited the system in June 2026, a single Home screen was bound to variables from three generations of the library, typography still lived in legacy styles while colour lived in variables, and eight issues made the severity-ranked list.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bento">
+        <div class="row">
+          <figure class="fig" style="--span:2"><img src="assets/img/work/gloss-vault/01-home-desktop-light-today.png" alt="Home screen in light mode" loading="lazy"><figcaption>Light.</figcaption></figure>
+          <figure class="fig alt" style="--span:2"><img src="assets/img/work/gloss-vault/04-home-desktop-dark.png" alt="The same home screen in dark mode" loading="lazy"><figcaption>Dark: the same screen, one variable mode apart.</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="beat">
+        <div class="sec-intro">
+          <p class="mono">The split</p>
+          <div class="text">
+            <div>
+              <p>The decision I’m proudest of: GLOSS has three time views (Past, Today, Future), each with its own accent. Today’s accent was the brand teal, #00C4C4, and so was the primary button. One hex was doing two jobs. Inside the Today view nobody could say which one a button was following, and white text on #00C4C4 is 2.17:1, which fails WCAG AA anyway.</p>
+              <p>I split it into two roles. The Today accent stays #00C4C4 in both themes and is only used for tabs, charts, selection and focus. The action colour became its own token: #008081 in light (4.77:1 with a white label), #2CD2D2 in dark (10.1:1 with a dark label). Buttons stopped changing identity when you switched tabs.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bento">
+          <div class="row eq plate">
+            <figure class="fig fit" style="--span:2; --ar:1082/756; --plate:#2C2C2C"><img src="assets/img/work/gloss-vault/05-1-variables-panel-crop.png" alt="The Figma variables panel of the design system: collections on the left, the colour primitives with a Light and a Dark column" loading="lazy"><figcaption>Figma variables: the light / dark switch lives only in the primitives.</figcaption></figure>
+            <div class="tile"><p class="mono">Before</p><p>#00C4C4 was both the Today accent and the primary action.</p><img class="part" src="assets/img/work/gloss-vault/05-2b-button-before-next.png" alt="The old Next button: a white label on #00C4C4" width="348" height="100" style="width:min(100%, 348px)"><small>White label on it: 2.17:1. Fails AA.</small></div>
+            <div class="tile"><p class="mono">After</p><p>accent/today stays #00C4C4. action/primary is its own token.</p><img class="part" src="assets/img/work/gloss-vault/05-3b-button-after-create.png" alt="The new Create button: a white label on #008081" width="348" height="100" style="width:min(100%, 348px)"><small>#008081 light, 4.77:1 · #2CD2D2 dark, 10.1:1</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="beat">
+        <div class="sec-intro">
+          <p class="mono">The component</p>
+          <div class="text">
+            <div>
+              <p>That split could reach every screen because Button is one component. I rebuilt it with properties: five styles, Destructive for deletes among them, and four states, Disabled among them: twenty variants in all, plus a text label and an optional leading icon. Primary’s fill reads button/primary/bg, which points at action/primary, so changing the role changes every Primary button at once. The old Next button, for comparison, was painted straight from the primitive Teal-500.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bento">
+          <div class="row eq plate">
+            <figure class="fig inset" style="--span:3; --ar:1562/566"><img src="assets/img/work/gloss-vault/05-4-button-component-props.png" alt="Three Figma panels of the Button component: its properties (Style, State, Label, Leading icon, Icon), the Style picker (Primary, Secondary, Ghost, Destructive, Marketing), and an instance set to Primary, Default, label Create" loading="lazy"><figcaption>Button in the 2.1 library: five styles and four states, a label and an optional leading icon. Right: the sheet’s Create button is one instance of it.</figcaption></figure>
+            <div class="tile"><p class="mono">Rule</p><p>Components reference semantic tokens, never a raw primitive.</p><small>Button’s Primary fill is button/primary/bg → action/primary. The old Next button read Teal-500 directly.</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="beat">
+        <div class="sec-intro">
+          <p class="mono">Handoff</p>
+          <div class="text">
+            <div>
+              <p>Engineering gets a versioned package, not a Figma link: token JSON, compiled CSS, a changelog with migration notes, and an interactive docs site. I built the pipeline with AI tooling; the audit, the rules and every decision in it are mine.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bento">
+          <div class="row">
+            <figure class="fig" style="--span:2; --ar:2880/1800"><img src="assets/img/work/gloss-vault/06-1-ds-docs-token-architecture.png" alt="The design-system docs site: the token architecture page, with the navigation of every foundation and component" loading="lazy"><figcaption>Docs site: primitive → semantic → component.</figcaption></figure>
+            <figure class="fig alt" style="--span:2; --ar:2880/1800"><img src="assets/img/work/gloss-vault/06-2-ds-docs-color-semantic.png" alt="The design-system docs site: semantic colour roles" loading="lazy"><figcaption>Docs site: semantic colour roles, previewed live.</figcaption></figure>
+          </div>
+          <div class="row eq plate">
+            <div class="tile"><p class="mono">Tokens</p><p>846 tokens in three layers</p><small>305 primitive · 242 semantic · 299 component</small></div>
+            <div class="tile"><p class="mono">Releases</p><p>Released most weeks, as design needs come in</p><small>46 versions since June (2.1.0 → 3.15.1), each with a changelog entry</small></div>
+            <figure class="fig inset" style="--span:2; --ar:1500/560"><img src="assets/img/work/gloss-vault/06-3-dev-packet-button.png" alt="The developer packet at the foot of the Button page in the docs site: links to the Figma node, tokens/component.json, semantic.json, primitive.json and dist/tokens.css" loading="lazy"><figcaption>Every docs page ends in a developer packet: its Figma node, the token JSON and the compiled CSS.</figcaption></figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub">
+        <div class="sec-intro">
+          <p class="mono">02 · Design system · Dark mode</p>
+          <div class="text">
+            <h3>Dark mode is not an inversion</h3>
+            <div>
+              <p>Colours flip through the token layers: a semantic role like surface/page re-points from one grey step to another, and the primitives themselves get darker. Shadows can’t work that way. GLOSS surfaces are neumorphic, a white highlight top-left and a black drop bottom-right, and the highlight that reads as depth on a light page glares on a dark one.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bento">
+          <div class="row">
+            <figure class="fig" style="--span:4; --ar:2024/628"><img src="assets/img/work/gloss-vault/09-1-shadow-token-vs-hardcoded-dark.png" alt="Two identical cards in dark mode: the left one reads the elevation token and its shadow darkens with the theme; the right one hardcodes the light shadow and its white highlight glares" loading="lazy"><figcaption>Dark mode, same card twice: left reads the elevation token and darkens with the theme; right hardcodes the light shadow and its highlight glares.</figcaption></figure>
+          </div>
+        </div>
+        <div class="beat">
+          <div class="sec-intro">
+            <div class="text">
+              <div>
+                <p>So elevation tokens carry their own light and dark values instead of pointing at a primitive: in dark, the white highlight falls from about 70% to under 5% and the black drop deepens from about 12% to around 50%. In Figma the same rule is an eight-step shadow colour scale held in mode-aware variables, so no effect style carries a raw colour and the two themes stay in step. Modal shadows are the deliberate exception, a plain downward drop with no highlight, because a dialog floats on a dimmed scrim. A third, flat set covers low-end Android WebViews and reduced-transparency settings.</p>
+              </div>
+            </div>
+          </div>
+          <div class="bento">
+            <div class="row eq plate">
+              <figure class="fig alt fit" style="--span:2; --ar:2024/1570"><img src="assets/img/work/gloss-vault/09-2-shadow-lab-light-vs-dark.png" alt="The interactive shadow lab from the handoff docs, in light mode above and dark mode below" loading="lazy"><figcaption>The interactive lab from the handoff docs: drag the alpha and break it yourself.</figcaption></figure>
+              <div class="col" style="--span:2">
+                <div class="tile"><p class="mono">Colour</p><p>Two layers do the dark work: the semantic role re-points, the primitive changes its hex.</p></div>
+                <div class="tile"><p class="mono">Shadow</p><p>One layer only. The elevation token holds light, dark and flat in itself.</p><small>Dark rule: white highlight ≤ 5%, barely visible by design · black drop 45–60%</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub">
+        <div class="sec-intro">
+          <p class="mono">02 · Design system · The file</p>
+          <div class="text">
+            <h3>The file has a front door</h3>
+            <div>
+              <p>The design file is designed too. It opens on an index board: one card per module, carrying a preview, the sub-flows inside it, a status pill (in progress or ready for dev) and a title that links straight to that module’s page. The cards follow the app’s navigation, reordered as features are updated. The PM and the engineers find the current screen without asking me for a walkthrough, and anything still in progress is visible from the front door rather than buried somewhere down the page list.</p>
+            </div>
+          </div>
+        </div>
+        <div class="bento">
+          <div class="row eq plate">
+            <figure class="fig" style="--span:2; --ar:2930/2070"><img src="assets/img/work/gloss-vault/10-1-figma-index.png" alt="The index board of the GLOSS design file: a row per module (Login, Home, Rewards, Account, Budget), each card with a preview, its sub-flows and a status pill (Ready for dev or In progress)" loading="lazy"><figcaption>The index board. Every card title is a link into that module’s page.</figcaption></figure>
+            <div class="tile"><p class="mono">Front door</p><p>One card per module: preview, sub-flows, status pill, and a link to the page.</p></div>
+            <div class="tile"><p class="mono">Why</p><p>A long page list is not a handoff. An index is.</p><small>The index is my own system for running the file: built for the PM and the engineers, not for me, and how they find earlier designs too.</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec flow" aria-labelledby="s3">
+      <div class="sec-intro">
+        <p class="mono">03 · Product judgement</p>
+        <div class="text">
+          <h2 id="s3">The things nobody asked for</h2>
+          <div>
+            <p>Product thinking at an early-stage company mostly looks like noticing problems before they’re tickets.</p>
+          </div>
+        </div>
+      </div>
+      <div class="bento">
+        <div class="row">
+          <figure class="fig" style="--span:2"><img src="assets/img/work/gloss-vault/07-home-desktop-before.png" alt="The old home screen: a table of balances" loading="lazy"><figcaption>Before: the home screen read like a spreadsheet export.</figcaption></figure>
+          <figure class="fig alt" style="--span:2"><img src="assets/img/work/gloss-vault/01-home-desktop-light-today.png" alt="The new home screen: a bubble chart of assets by category" loading="lazy"><figcaption>After: a bubble chart of assets by category. Nobody had asked for it; I proposed it.</figcaption></figure>
+        </div>
+      </div>
+
+      <aside class="concept" data-ba aria-labelledby="s3-next">
+        <div class="concept-head">
+          <div>
+            <p class="mono concept-chip">Concept · not shipped</p>
+            <h3 id="s3-next">Where it could go next</h3>
+          </div>
+          <div>
+            <p>Two direction studies on the layout that shipped: liquid glass, and flat in GLOSS’s own colours. Not on the roadmap: at this stage engineering time goes to features first. These are where I test how far the visual language can stretch without touching the information architecture.</p>
+          </div>
+        </div>
+        <div class="ba-bar">
+          <div class="ba-pick"><span class="mono" id="ba-l-view">View</span><span class="ba-seg" role="group" aria-labelledby="ba-l-view"><button type="button" data-view="today" aria-pressed="true">Today</button><button type="button" data-view="past" aria-pressed="false">Past</button></span></div>
+          <div class="ba-pick"><span class="mono" id="ba-l-style">Style</span><span class="ba-seg" role="group" aria-labelledby="ba-l-style"><button type="button" data-skin="glass" aria-pressed="true">Liquid glass</button><button type="button" data-skin="flat" aria-pressed="false">Flat</button></span></div>
+          <p class="ba-hint">Drag across the picture to compare with the live screen.</p>
+        </div>
+        <figure class="fig no-zoom ba-fig" style="--ar:1440 / 1024">
+          <div class="stage ba" data-view="today" data-skin="glass" style="--x:50%">
+            <img class="after" src="assets/img/lab/colour-today-glass.webp" alt="After, liquid glass: the home screen on a pale blue-grey canvas, with frosted white cards, a pill navigation, the balance in thin oversized numerals, five glass orbs for the accounts" width="2400" height="1707" loading="lazy" decoding="async" data-view="today" data-skin="glass">
+            <img class="after" src="assets/img/lab/colour-today-flat.webp" alt="After, flat: the same home screen in GLOSS’s own colours, with white cards on light grey, teal for the selected period and the largest account, a charcoal chart card" width="2400" height="1707" loading="lazy" decoding="async" data-view="today" data-skin="flat">
+            <img class="before" src="assets/img/lab/colour-today-before.webp" alt="Before: the shipped home screen, with a sidebar, the balance in a green card, account bubbles and an account list" width="2400" height="1707" loading="lazy" decoding="async" data-view="today">
+            <img class="after" src="assets/img/lab/colour-past-glass.webp" alt="After, liquid glass: the past view, with the closing balance in thin numerals, four tagged figures, a weekly balance line and a per-account bar on frosted cards" width="2400" height="1707" loading="lazy" decoding="async" data-view="past" data-skin="glass">
+            <img class="after" src="assets/img/lab/colour-past-flat.webp" alt="After, flat: the past view in GLOSS’s own colours, with orange for the selected period, four stat cards, a charcoal chart card with the weekly line" width="2400" height="1707" loading="lazy" decoding="async" data-view="past" data-skin="flat">
+            <img class="before" src="assets/img/lab/colour-past-before.webp" alt="Before: the shipped past view, with an orange tab, the closing balance in a green card, a per-account list and the transactions" width="2400" height="1707" loading="lazy" decoding="async" data-view="past">
+            <div class="ba-nums urbanist" data-view="today" data-skin="glass" aria-hidden="true">
+              <span class="n ba-amt" style="--l:36;--t:228;--fs:148;--lh:150;--ls:-0.035;--c:#1B2531;--cd:#7A8491" data-v="13813.31" data-d="2"><span class="i">13,813</span><span class="d">.31</span></span>
+              <span class="n" style="--l:36;--t:418;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="5" data-d="0">5</span>
+              <span class="n" style="--l:237;--t:416;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="4.55" data-d="2">4.55</span>
+              <span class="n" style="--l:418;--t:418;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="36" data-d="0">36</span>
+              <span class="n" style="--l:576;--t:416;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="4.5" data-d="2" data-p="≈">≈4.50</span>
+            </div>
+            <div class="ba-nums poppins" data-view="today" data-skin="flat" aria-hidden="true">
+              <span class="n ba-amt" style="--l:32;--t:220;--fs:80;--lh:92;--ls:-0.02;--c:#1C2024;--cd:#1C2024" data-v="13813.31" data-d="2"><span class="i">13,813</span><span class="d">.31</span></span>
+              <span class="n" style="--l:50;--t:392;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="5" data-d="0">5</span>
+              <span class="n" style="--l:268;--t:392;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="4.55" data-d="2">4.55</span>
+              <span class="n" style="--l:486;--t:392;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="36" data-d="0">36</span>
+              <span class="n" style="--l:704;--t:392;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="4.5" data-d="2" data-p="≈">≈4.50</span>
+            </div>
+            <div class="ba-nums urbanist" data-view="past" data-skin="glass" aria-hidden="true">
+              <span class="n ba-amt" style="--l:36;--t:220;--fs:148;--lh:150;--ls:-0.035;--c:#1B2531;--cd:#7A8491" data-v="4730.34" data-d="2"><span class="i">4,730</span><span class="d">.34</span></span>
+              <span class="n" style="--l:36;--t:410;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="242" data-d="0">242</span>
+              <span class="n" style="--l:206;--t:408;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="5762.7" data-d="2">5,762.70</span>
+              <span class="n" style="--l:384;--t:410;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="1850.0" data-d="2">1,850.00</span>
+              <span class="n" style="--l:555;--t:408;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="2880.34" data-d="2" data-p="+">+2,880.34</span>
+            </div>
+            <div class="ba-nums poppins" data-view="past" data-skin="flat" aria-hidden="true">
+              <span class="n ba-amt" style="--l:32;--t:212;--fs:80;--lh:92;--ls:-0.02;--c:#1C2024;--cd:#1C2024" data-v="4730.34" data-d="2"><span class="i">4,730</span><span class="d">.34</span></span>
+              <span class="n" style="--l:50;--t:384;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="242" data-d="0">242</span>
+              <span class="n" style="--l:268;--t:384;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="5762.7" data-d="2">5,762.70</span>
+              <span class="n" style="--l:486;--t:384;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="1850.0" data-d="2">1,850.00</span>
+              <span class="n" style="--l:704;--t:384;--fs:26;--lh:36;--ls:-0.01;--c:#3E9B4F" data-v="2880.34" data-d="2" data-p="+">+2,880.34</span>
+            </div>
+            <span class="ba-line" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 8-4 4 4 4M15 8l4 4-4 4"/></svg></span></span><span class="mono ba-tag b" aria-hidden="true">Before</span><span class="mono ba-tag a" aria-hidden="true">After</span>
+            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Home, two direction studies: compare before and after">
+          </div>
+        </figure>
+      </aside>
+
+      <div class="bento">
+        <div class="row eq plate">
+          <figure class="fig" style="--span:2"><img src="assets/img/work/gloss-vault/08-1-budget-saving-goals.png" alt="The Budgets page with saving goals selected" loading="lazy"><figcaption>Saving goals vs spending budgets: you pick the type first, and “add” sits one level below the toggle, so it always belongs to the type you’re looking at.</figcaption></figure>
+          <div class="col" style="--span:2">
+            <div class="tile"><p class="mono">“Add a column, the wide screen looks empty.”</p><p>It wasn’t a content problem. It was a responsive-layout problem: centring the content fixed it with no new feature.</p></div>
+            <div class="tile"><p class="mono">Saying no</p><p>Summary widgets in Budgets would have repeated what the Transactions view already shows, so I argued against them.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="s4">
+      <div class="sec-intro">
+        <p class="mono">04 · Impact &amp; reflection</p>
+        <div class="text">
+          <h2 id="s4">What I can point to, and what I’d do differently</h2>
+          <div>
+            <p>GLOSS is early-stage and I don’t own measurement: the PM works closest to users and defines what each feature needs to do; my part is the interaction and the flow. So I can’t lean on numbers, and I’d rather say that than invent one. What I can point to: every feature above shipped, on desktop and mobile, in light and dark.</p>
+          </div>
+          <div>
+            <p>I started with Figma styles because the team was small and styles seemed like enough. Dark mode proved otherwise: styles solve consistency, variables solve systems. From 2.0 through today’s 2.1 the system has run on tokens and Figma variables, and that is what made dark mode practical to roll out. Next time I’d start on variables from the first version.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <nav class="next" aria-label="Previous and next case study">
+    <a class="prev" href="bilibili-live.html" data-cursor="Read case study"><span class="mono">Previous</span><span class="t">← bilibili Live</span></a>
+    <a class="fwd" href="b2b-pay-later.html" data-cursor="Read case study"><span class="mono">Next</span><span class="t">B2B pay-later app →</span></a>
+  </nav>
+</main>
+
+<footer class="site-foot" id="contact">
+  <div class="cta has-fold">
+    <div class="say">
+      <h2>Working on something interesting?<br>I’d like to hear about it.</h2>
+    </div>
+    <div class="fold-slot">
+      <div class="fold" data-fold data-auto="end">
+        <div class="fold-ground" aria-hidden="true"></div>
+        <button class="fold-hit" type="button" aria-expanded="false" aria-controls="fold-inside" data-grab><span class="fold-cue" data-cursor="Open the card"></span><span class="fold-sr">Open the card</span></button>
+        <div class="fold-page fold-base" id="fold-inside">
+          <div class="fold-paper">
+            <span class="fold-mark hx-mark" data-variant="ink" data-weight="9" data-draw="off" aria-hidden="true"></span>
+            <span class="fold-tag">harrietxu.com</span>
+            <ul class="fold-links">
+              <li><a href="mailto:harriet.xu01@gmail.com?subject=Hello%20Harriet" data-contact><span>Email</span><span>harriet.xu01@gmail.com</span></a></li>
+              <li><a href="https://www.linkedin.com/in/harrietxu" target="_blank" rel="noopener"><span>LinkedIn</span><span>in/harrietxu ↗</span></a></li>
+              <li><a href="assets/resume/Harriet-Xu-Product-Designer.pdf" target="_blank" rel="noopener"><span>Resume</span><span>PDF ↓</span></a></li>
+            </ul>
+            <p class="fold-id"><b>Harriet Xu</b><span>Product Designer</span></p>
+          </div>
+          <i class="fold-shade"></i><i class="fold-rim"></i>
+        </div>
+        <i class="fold-slab" aria-hidden="true"></i>
+        <div class="fold-page fold-front" aria-hidden="true">
+          <div class="fold-paper">
+            <span class="fold-mark hx-mark" data-variant="ink" data-weight="9" data-draw="off" aria-hidden="true"></span>
+            <span class="fold-tag">harrietxu.com</span>
+            <p class="fold-id"><b>Harriet Xu</b><span>Product Designer</span></p>
+          </div>
+          <span class="fold-blur"></span><i class="fold-shade"></i><i class="fold-rim"></i>
+        </div>
+        <div class="fold-page fold-back">
+          <div class="fold-paper">
+            <img class="fold-face" src="assets/img/all/card-face.jpg" width="256" height="256" alt="Harriet Xu" loading="lazy" decoding="async" draggable="false">
+            <div class="fold-say"><p>A product designer who makes the complex <em>clear</em>.</p><span>Fintech · Sydney</span></div>
+          </div>
+          <span class="fold-blur"></span><i class="fold-shade"></i><i class="fold-rim"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fine mono"><p>© 2026 Harriet Xu</p><p>Sydney, Australia · Designed in Figma, written in HTML</p></div>
+</footer>
+
+<script src="js/case.js"></script>
+<script src="js/ba.js"></script>
+<script src="js/lightbox.js"></script>
+<script src="js/clips.js"></script>
+<script src="js/fold-card.js"></script>
+<script src="js/site.js"></script>
+<script src="js/motion.js"></script>
+</body>
+</html>
