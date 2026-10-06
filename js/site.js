@@ -56,7 +56,9 @@
 
   const DIR = 'assets/img/about/', EXT = ['webp', 'jpg', 'jpeg', 'png', 'svg'];
   const shape = {};
-  const probe = (name, dir, exts) => new Promise((resolve) => { const E = exts || EXT; let i = 0; const next = () => { if (i >= E.length) return resolve(null); const src = (dir || DIR) + name + '.' + E[i++], im = new Image(); im.onload = () => { if (im.naturalHeight) shape[src] = im.naturalWidth / im.naturalHeight; resolve(src); }; im.onerror = next; im.src = src; }; next(); });
+  const FILES = window.ABOUT_FILES || null;
+  const listed = (name, E) => { for (const x of E) { const f = name + '.' + x; if (Object.prototype.hasOwnProperty.call(FILES, f)) { const src = DIR + f; if (FILES[f]) shape[src] = FILES[f]; return src; } } return null; };
+  const probe = (name, dir, exts) => new Promise((resolve) => { const E = exts || EXT; if (FILES && (dir || DIR) === DIR) return resolve(listed(name, E)); let i = 0; const next = () => { if (i >= E.length) return resolve(null); const src = (dir || DIR) + name + '.' + E[i++], im = new Image(); im.onload = () => { if (im.naturalHeight) shape[src] = im.naturalWidth / im.naturalHeight; resolve(src); }; im.onerror = next; im.src = src; }; next(); });
   const captions = window.ABOUT_CAPTIONS || {};
 
   document.querySelectorAll('.slot[data-photo]').forEach((slot) => {
@@ -73,9 +75,11 @@
     const found = [];
     for (let n = 1; n <= max; n++) { const name = prefix + '-' + String(n).padStart(2, '0'), src = await probe(name); if (!src) break; found.push({ name, src }); }
     if (!found.length) { reel.classList.add('is-empty'); return; }
-    track.replaceChildren(); reel.classList.add('has-photo');
+    track.replaceChildren();
     found.forEach((p, i) => { const fig = document.createElement('figure'), im = new Image(); im.src = p.src; im.alt = captions[p.name] || ''; im.decoding = 'async'; if (i) im.loading = 'lazy'; fig.appendChild(im); track.appendChild(fig);
       const d = document.createElement('button'); d.type = 'button'; d.setAttribute('aria-label', 'Photo ' + (i + 1) + ' of ' + found.length); d.addEventListener('click', () => go(i)); dots.appendChild(d); });
+    const first = track.querySelector('img'), ready = () => { reel.classList.remove('is-loading'); reel.classList.add('has-photo'); };
+    if (first.complete && first.naturalWidth) ready(); else { reel.classList.add('is-loading'); first.addEventListener('load', ready, { once: true }); first.addEventListener('error', ready, { once: true }); }
     let at = 0;
     const show = (i) => { at = i; [...dots.children].forEach((d, k) => d.toggleAttribute('aria-current', k === i)); cap.textContent = captions[found[i].name] || ''; reel.querySelector('[data-dir="-1"]').disabled = i === 0; reel.querySelector('[data-dir="1"]').disabled = i === found.length - 1; };
     const go = (i) => { i = Math.max(0, Math.min(found.length - 1, i)); track.scrollTo({ left: track.children[i].offsetLeft - track.offsetLeft, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }); show(i); };

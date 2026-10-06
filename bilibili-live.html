@@ -20,6 +20,7 @@
 <script>(function(){var t;try{t=localStorage.getItem('theme')}catch(e){}document.documentElement.dataset.theme=t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')})()</script>
 <script>(function(){if(location.hash){var h=document.documentElement;h.style.scrollBehavior='auto';addEventListener('load',function(){requestAnimationFrame(function(){h.style.scrollBehavior=''})})}try{var p=JSON.parse(sessionStorage.getItem('pt')||'null');sessionStorage.removeItem('pt');if(p&&Date.now()-p.t<4000&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add(p.h?'pt-hold':'pt-in');window.__pt=p}}catch(e){}})()</script>
 <link rel="icon" href="assets/logo/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="assets/logo/favicon-96.png" sizes="96x96" type="image/png">
 <link rel="icon" href="assets/logo/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/Geist-Medium.woff2" as="font" type="font/woff2" crossorigin>
@@ -35,8 +36,8 @@
 <div class="nav">
   <div class="dock">
   <nav class="tabbar glass" aria-label="Main">
-    <a class="brand" href="index.html"><span class="hx-mark" data-variant="silk" data-weight="11" aria-hidden="true"></span><span>Harriet Xu</span><span class="bar" aria-hidden="true"></span><span class="place">Sydney, AU</span></a>
-    <div class="links"><a href="index.html#work" aria-current="page">Work</a><a href="about.html">About</a></div>
+    <a class="brand" href="./"><span class="hx-mark" data-variant="silk" data-weight="11" aria-hidden="true"></span><span>Harriet Xu</span><span class="bar" aria-hidden="true"></span><span class="place">Sydney, AU</span></a>
+    <div class="links"><a href="./#work" aria-current="page">Work</a><a href="about.html">About</a></div>
   </nav>
   <div class="actions glass">
     <a href="assets/resume/Harriet-Xu-Product-Designer.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4.5v10M8 11l4 4 4-4M5.5 19h13"/></svg><span>Resume</span></a>
@@ -53,7 +54,7 @@
 <main class="case" id="main">
 
   <header class="case-head">
-    <a class="case-back" href="index.html#work" aria-label="Back to all work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>All work</span></a>
+    <a class="case-back" href="./#work" aria-label="Back to all work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><span>All work</span></a>
     <p class="mono eyebrow">Project · Live streaming · Shanghai</p>
     <h1>bilibili Live</h1>
     <p class="dek">bilibili Live Assistant is the companion app streamers use to go live on bilibili. The first release shipped on a tight timeline and drew negative feedback, so the redesign set out to shorten the path to going live, calm the layout down, and build a component library the whole team could share.</p>
