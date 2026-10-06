@@ -35,9 +35,26 @@
 
   stages.forEach((ba) => {
     const range = ba.querySelector('.ba-range');
+    let glide = 0;
+    let hold = null;
     const set = (v) => { v = Math.max(0, Math.min(100, v)); ba.style.setProperty('--x', v.toFixed(2) + '%'); if (range && Math.round(v) !== +range.value) range.value = Math.round(v); };
-    if (range) range.addEventListener('input', () => set(+range.value));
-    ba.addEventListener('pointermove', (e) => { if (e.pointerType !== 'mouse' || e.target.closest('.ba-ctl')) return; const r = ba.getBoundingClientRect(); if (r.width) set((e.clientX - r.left) / r.width * 100); });
+    const still = () => { if (glide) { cancelAnimationFrame(glide); glide = 0; } };
+    const rest = () => {
+      still();
+      const cur = parseFloat(ba.style.getPropertyValue('--x')), from = Number.isFinite(cur) ? cur : 50, to = 100 / 3;
+      if (calm.matches || Math.abs(to - from) < .5) { set(to); return; }
+      const t0 = performance.now(), dur = 640;
+      const step = (now) => { const t = Math.min(1, (now - t0) / dur); set(from + (to - from) * ease(t)); glide = t < 1 ? requestAnimationFrame(step) : 0; };
+      glide = requestAnimationFrame(step);
+    };
+    if (range) range.addEventListener('input', () => { still(); hold = null; set(+range.value); });
+    ba.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'mouse' || e.target.closest('.ba-ctl')) return;
+      if (hold) { if (Math.hypot(e.clientX - hold.x, e.clientY - hold.y) < 48) return; hold = null; }
+      still();
+      const r = ba.getBoundingClientRect(); if (r.width) set((e.clientX - r.left) / r.width * 100);
+    });
+    ba.addEventListener('pointerleave', () => { hold = null; });
 
     const active = () => ba.querySelector(`.ba-nums[data-view="${ba.dataset.view || 'today'}"][data-skin="${ba.dataset.skin || 'glass'}"]`);
     const scope = ba.closest('[data-ba]') || ba;
@@ -53,6 +70,8 @@
         seg.querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
         ba.dataset[key] = b.dataset[key];
         mark(seg);
+        rest();
+        hold = ba.contains(seg) && e.detail ? { x: e.clientX, y: e.clientY } : null;
         const g = active(); if (g) roll(g, true);
       });
       mark(seg);

@@ -34,6 +34,7 @@
 .stage.ba:has(.ba-range:focus-visible) .ba-knob { outline:2px solid var(--ring, #8DBBFF); outline-offset:2px; }
 
 .ba-ctl { position:absolute; top:10px; right:10px; z-index:5; display:flex; gap:6px; cursor:default; }
+.lab-card .ba-ctl { right:60px; }
 .ba-seg { position:relative; display:inline-flex; padding:3px; border-radius:999px; background:var(--color-bg-page); border:1px solid var(--color-border-subtle); box-shadow:0 6px 16px -10px rgba(14,16,19,.45); }
 .ba-seg::before { content:""; position:absolute; top:3px; bottom:3px; left:0; width:var(--w, 0px); translate:var(--i, 0px) 0; border-radius:999px; background:var(--color-bg-surface); border:1px solid var(--color-border-subtle);
                   box-sizing:border-box; opacity:var(--on, 0); transition:translate .3s cubic-bezier(.2,.7,.2,1), width .3s cubic-bezier(.2,.7,.2,1); }
@@ -45,7 +46,7 @@
 
 @media (max-width:720px) {
   .ba-tag { top:40px; }
-  .ba-ctl { top:auto; bottom:10px; left:10px; right:auto; }
+  .ba-ctl, .lab-card .ba-ctl { top:auto; bottom:10px; left:10px; right:auto; }
   .ba-seg button { padding:5px 9px; font-size:11px; }
 }
 @media (prefers-reduced-motion: reduce) {
