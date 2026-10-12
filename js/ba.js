@@ -37,7 +37,46 @@
     const range = ba.querySelector('.ba-range');
     let glide = 0;
     let hold = null;
-    const set = (v) => { v = Math.max(0, Math.min(100, v)); ba.style.setProperty('--x', v.toFixed(2) + '%'); if (range && Math.round(v) !== +range.value) range.value = Math.round(v); };
+    const x0 = parseFloat(ba.style.getPropertyValue('--x'));
+    let cur = (Number.isFinite(x0) ? x0 : 50) / 100;
+    const rope = calm.matches ? null : (() => {
+      const ns = 'http://www.w3.org/2000/svg', svg = document.createElementNS(ns, 'svg'), path = document.createElementNS(ns, 'path');
+      svg.setAttribute('class', 'ba-rope'); svg.setAttribute('aria-hidden', 'true'); svg.appendChild(path);
+      ba.insertBefore(svg, ba.querySelector('.ba-line'));
+      const befores = ba.querySelectorAll('img.before'), nums = ba.querySelectorAll('.ba-nums');
+      const ends = { x: NaN, v: 0 };
+      let W = 0, H = 0, max = 9, tagT = .06, raf = 0, prev = 0;
+      const bow = () => Math.max(-max, Math.min(max, (cur - ends.x) * W * .5));
+      const draw = (b) => {
+        const x = cur * W, t = (x - b).toFixed(2), c = (x + b).toFixed(2), m = (H / 2).toFixed(2), h = H.toFixed(2), w = W.toFixed(2);
+        const curve = `M${t} 0Q${c} ${m} ${t} ${h}`;
+        path.setAttribute('d', curve);
+        const left = `path("M0 0L${t} 0Q${c} ${m} ${t} ${h}L0 ${h}Z")`, right = `path("M${t} 0Q${c} ${m} ${t} ${h}L${w} ${h}L${w} 0Z")`;
+        befores.forEach((el) => { el.style.clipPath = left; });
+        nums.forEach((el) => { el.style.clipPath = right; });
+        ba.style.setProperty('--xt', (x - b + 4 * b * tagT * (1 - tagT)).toFixed(2) + 'px');
+        ba.classList.add('is-rope');
+      };
+      const step = (now) => {
+        const dt = Math.min(.033, (now - prev) / 1000); prev = now;
+        if (!W) { raf = 0; return; }
+        ends.v += ((cur - ends.x) * 620 - ends.v * 44) * dt;
+        ends.x += ends.v * dt;
+        if (Math.abs(cur - ends.x) < .0006 && Math.abs(ends.v) < .002) { ends.x = cur; ends.v = 0; draw(0); raf = 0; return; }
+        draw(bow());
+        raf = requestAnimationFrame(step);
+      };
+      const wake = () => { if (!raf) { prev = performance.now(); raf = requestAnimationFrame(step); } };
+      const measure = () => {
+        W = ba.offsetWidth; H = ba.offsetHeight; max = Math.max(8, Math.min(40, W * .035));
+        const tag = ba.querySelector('.ba-tag'); if (tag && H) tagT = (tag.offsetTop + tag.offsetHeight / 2) / H;
+        if (!W) return;
+        if (!Number.isFinite(ends.x)) { ends.x = cur; ends.v = 0; }
+        wake();
+      };
+      return { wake, measure };
+    })();
+    const set = (v) => { v = Math.max(0, Math.min(100, v)); cur = v / 100; ba.style.setProperty('--x', v.toFixed(2) + '%'); if (rope) rope.wake(); if (range && Math.round(v) !== +range.value) range.value = Math.round(v); };
     const still = () => { if (glide) { cancelAnimationFrame(glide); glide = 0; } };
     const rest = () => {
       still();
@@ -76,7 +115,7 @@
       });
       mark(seg);
     });
-    const remark = () => segs.forEach(mark);
+    const remark = () => { segs.forEach(mark); if (rope) rope.measure(); };
     addEventListener('load', remark);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(remark);
     if ('ResizeObserver' in window) new ResizeObserver(remark).observe(ba); else addEventListener('resize', remark);
