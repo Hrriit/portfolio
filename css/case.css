@@ -339,3 +339,147 @@ html:not([data-slots="show"]) .row.has-pending > .tile { grid-column:1 / -1; }
 
 .sec-intro .text p a { color:var(--color-fg-accent); text-decoration:underline; text-decoration-thickness:1px; text-decoration-color:color-mix(in srgb, currentColor 40%, transparent); }
 .sec-intro .text p a:hover { text-decoration-color:currentColor; }
+
+.flowmap { display:grid; gap:12px; }
+.flowmap .bar { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.flowmap .bar .tools { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+.flowmap .fm-enlarge { display:inline-flex; align-items:center; gap:8px; height:42px; padding:0 16px 0 13px; border-radius:999px; border:1px solid var(--color-border-subtle); background:var(--color-bg-page); color:var(--color-fg-primary); font:500 14px/1 Geist, system-ui, sans-serif; cursor:zoom-in; transition:background-color .18s ease, border-color .18s ease; }
+.flowmap .fm-enlarge svg { display:block; width:16px; height:16px; flex:none; transition:transform .3s var(--ease-out); }
+.flowmap .fm-enlarge:hover { background:var(--color-bg-wash); border-color:var(--color-border-divider); }
+.flowmap .fm-enlarge:hover svg { transform:scale(1.12); }
+.flowmap .fm-enlarge:active { transform:scale(.97); }
+.flowmap .fm-enlarge:focus-visible { outline:2px solid var(--color-fg-accent); outline-offset:2px; }
+.flowmap .bar .legend { display:flex; gap:18px; flex-wrap:wrap; font-size:13px; color:var(--color-fg-secondary); }
+.flowmap .bar .legend span { display:inline-flex; align-items:center; gap:8px; }
+.flowmap .bar .legend i { display:inline-block; width:22px; height:0; border-top:1.5px solid var(--color-fg-secondary); }
+.flowmap .bar .legend i.dash { border-top-style:dashed; }
+.flowmap .bar .legend i.dots { border-top-style:dotted; border-top-width:2px; }
+.flowmap .bar .legend b { display:inline-block; width:14px; height:14px; border-radius:4px; background:#E0F7F7; border:1px solid rgba(0,196,196,.45); }
+:root[data-theme="dark"] .flowmap .bar .legend b { background:#1D3B3C; border-color:rgba(44,210,210,.5); }
+.flowmap .pick { display:inline-flex; align-items:center; gap:12px; }
+.flowmap .pick > .mono { color:var(--color-fg-secondary); }
+.flowmap .seg { position:relative; display:inline-flex; padding:4px; border-radius:999px; background:var(--color-bg-page); border:1px solid var(--color-border-subtle); }
+.flowmap .seg::before { content:""; position:absolute; top:4px; bottom:4px; left:0; width:var(--w, 0px); translate:var(--i, 0px) 0; border-radius:999px; background:var(--color-fg-primary); transition:translate .35s var(--ease-out), width .35s var(--ease-out); }
+.flowmap .seg button { position:relative; appearance:none; border:0; background:none; margin:0; padding:8px 15px; border-radius:999px; font:500 14px/1.15 Geist, system-ui, sans-serif; color:var(--color-fg-secondary); cursor:pointer; white-space:nowrap; transition:color .2s ease; }
+.flowmap .seg button[aria-pressed="true"] { color:var(--color-bg-page); }
+.flowmap .seg button:focus-visible { outline:2px solid var(--color-fg-accent); outline-offset:2px; }
+.flowmap .plate { position:relative; margin-inline:calc((var(--case-max) - 1200px) / 2); border-radius:16px; background:var(--g-plate); border:1px solid var(--g-plate-edge); overflow:hidden; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  --g-plate:#EEF1F4; --g-plate-edge:rgba(20,58,94,.06); --g-card:#FAFBFC; --g-card-edge:rgba(36,52,70,.12); --g-ink:#263241; --g-ink-2:#6E7B8A; --g-line:#B6C0CB;
+  --g-today:#00C4C4; --g-action:#008081; --g-action-ink:#FFFFFF; --g-past:#F2B96B; --g-future:#B9B3F0; --g-tint:#E0F7F7; --g-tint-edge:rgba(0,196,196,.45);
+  --g-shadow-1:rgba(20,58,94,.06); --g-shadow-2:rgba(20,58,94,.16); }
+:root[data-theme="dark"] .flowmap .plate {
+  --g-plate:#151A21; --g-plate-edge:rgba(255,255,255,.06); --g-card:#232A33; --g-card-edge:rgba(255,255,255,.10); --g-ink:#E8EDF3; --g-ink-2:#96A3B2; --g-line:#4A5665;
+  --g-action:#2CD2D2; --g-action-ink:#06282A; --g-tint:#1D3B3C; --g-tint-edge:rgba(44,210,210,.5);
+  --g-shadow-1:rgba(0,0,0,.35); --g-shadow-2:rgba(0,0,0,.5); }
+.flowmap .plate > svg { display:block; width:100%; height:auto; min-width:900px; font:500 14px/1 Geist, system-ui, sans-serif; }
+.flowmap[data-density="compact"] .plate > svg { font-size:13px; }
+.flowmap[data-density="compact"][data-layout="split"] .plate > svg { font-size:12.5px; }
+.flowmap .node .tag { font:400 10px/1 "Geist Mono", ui-monospace, monospace; letter-spacing:.06em; fill:var(--g-ink-2); }
+.flowmap .col { font:400 11px/1 "Geist Mono", ui-monospace, monospace; letter-spacing:.06em; text-transform:uppercase; fill:var(--g-ink-2); opacity:0; transition:opacity .4s ease .3s; }
+.flowmap svg.in .col { opacity:.8; }
+.flowmap .edge { fill:none; stroke:var(--g-line); stroke-width:1.5; transition:stroke .22s ease, opacity .22s ease; }
+.flowmap .edge.sheet { stroke-dasharray:5 5; }
+.flowmap .edge.gone { opacity:0 !important; }
+.flowmap svg:not(.in) .edge:not(.sheet) { stroke-dasharray:var(--len); stroke-dashoffset:var(--len); }
+.flowmap svg:not(.in) .edge.sheet { stroke-opacity:0; }
+.flowmap svg:not(.in) .card { opacity:0; }
+.flowmap svg.in .edge:not(.sheet):not(.done) { stroke-dasharray:var(--len); animation:fm-draw .5s var(--ease-out) var(--d, 0s) both; }
+.flowmap svg.in .edge.sheet:not(.done) { animation:fm-fade-stroke .4s ease var(--d, 0s) both; }
+.flowmap svg.in .card:not(.done) { animation:fm-rise .55s var(--ease-out) var(--d, 0s) both; }
+@keyframes fm-draw { from { stroke-dashoffset:var(--len); } to { stroke-dashoffset:0; } }
+@keyframes fm-fade-stroke { from { stroke-opacity:0; } to { stroke-opacity:1; } }
+@keyframes fm-fade { from { opacity:0; } to { opacity:1; } }
+@keyframes fm-rise { from { opacity:0; transform:translate(var(--rx, -8px), var(--ry, 0px)); } to { opacity:1; transform:none; } }
+.flowmap .node { cursor:default; outline:none; transition:opacity .22s ease, transform .55s var(--ease-out); }
+.flowmap .node.hidden { opacity:0 !important; pointer-events:none; }
+.flowmap .node[data-ref] { cursor:pointer; }
+.flowmap .card { transition:transform .25s var(--ease-out); }
+.flowmap .node:hover .card, .flowmap .node.pinned .card { transform:translateY(-1.5px); }
+.flowmap .node rect.bg { fill:var(--g-card); stroke:var(--g-card-edge); stroke-width:1; filter:drop-shadow(0 1px 1px var(--g-shadow-1)) drop-shadow(0 6px 12px var(--g-shadow-2)); transition:stroke .22s ease, stroke-width .22s ease; }
+.flowmap .node text { fill:var(--g-ink); dominant-baseline:central; }
+.flowmap .node .dim { fill:var(--g-ink-2); font-weight:400; }
+.flowmap .node.hub rect.bg { fill:transparent; stroke:var(--g-line); stroke-dasharray:3 3; filter:none; }
+.flowmap .node .hublabel { font:400 11px/1 "Geist Mono", ui-monospace, monospace; letter-spacing:.06em; fill:var(--g-ink-2); }
+.flowmap .node.home rect.bg { fill:var(--g-action); stroke:transparent; }
+.flowmap .node.home text { fill:var(--g-action-ink); }
+.flowmap .node.tint rect.bg { fill:var(--g-tint); stroke:var(--g-tint-edge); }
+.flowmap .node .tab-past { fill:var(--g-past); } .flowmap .node .tab-today { fill:var(--g-today); } .flowmap .node .tab-future { fill:var(--g-future); }
+.flowmap .node .step-no { fill:var(--g-tint); stroke:var(--g-tint-edge); }
+.flowmap .node .fork { fill:none; stroke:var(--g-line); stroke-width:1.25; stroke-linecap:round; }
+.flowmap .node .step-no + text { font:500 10px/1 "Geist Mono", ui-monospace, monospace; fill:var(--g-action); }
+:root[data-theme="dark"] .flowmap .node .step-no + text { fill:#8EEAEA; }
+.flowmap svg.tracing .node:not(.on), .flowmap svg.tracing .edge:not(.on) { opacity:.26; }
+.flowmap svg.tracing .node.via:not(.on) { opacity:.7; }
+.flowmap svg.tracing .edge.on { stroke:var(--g-today); opacity:.35; }
+.flowmap .route { fill:none; stroke:var(--g-today); stroke-width:2.25; stroke-linecap:round; stroke-linejoin:round; pointer-events:none; opacity:0; stroke-dasharray:var(--len, 0); stroke-dashoffset:var(--len, 0); }
+.flowmap .route.go { opacity:1; stroke-dashoffset:0; transition:stroke-dashoffset .55s var(--ease-out), opacity .15s ease; }
+.flowmap .node:focus-visible rect.bg { stroke:var(--g-today); stroke-width:2; }
+.flowmap .ring { fill:none; stroke:var(--g-today); stroke-width:1.75; stroke-linecap:round; stroke-dasharray:var(--len); stroke-dashoffset:var(--len); opacity:0; }
+.flowmap svg.tracing .node.on .ring, .flowmap .node.pinned .ring { opacity:1; stroke-dashoffset:0; transition:stroke-dashoffset .45s var(--ease-out) var(--i, 0s), opacity .05s linear var(--i, 0s); }
+.flowmap .node.home .ring { stroke:#8EEAEA; }
+.flowmap .xlink { fill:none; stroke:var(--g-line); stroke-width:1.25; stroke-dasharray:1.5 5; stroke-linecap:round; transition:stroke .22s ease, opacity .22s ease; }
+.flowmap svg:not(.in) .xlink { stroke-opacity:0; }
+.flowmap svg.in .xlink:not(.done) { animation:fm-fade-stroke .4s ease var(--d, 0s) both; }
+.flowmap svg.tracing .xlink:not(.on) { opacity:.15; }
+.flowmap svg.tracing .xlink.on { stroke:var(--g-today); stroke-width:1.5; }
+.flowmap .readout { display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; min-height:24px; font-size:14px; line-height:1.57; color:var(--color-fg-secondary); }
+.flowmap .readout .mono { color:var(--color-fg-secondary); flex:none; }
+.flowmap .readout .path { color:var(--color-fg-primary); }
+.flowmap .readout .path i { font-style:normal; color:var(--color-fg-secondary); margin:0 6px; }
+.flowmap .readout .path em { font-style:normal; color:var(--color-fg-secondary); }
+.flowmap .readout a { color:var(--color-fg-accent); text-decoration:underline; text-decoration-thickness:1px; text-decoration-color:color-mix(in srgb, currentColor 40%, transparent); }
+.flowmap .readout a:hover { text-decoration-color:currentColor; }
+.flowmap .readout .path, .flowmap .readout a { animation:fm-fade .25s ease both; }
+.flowmap figcaption { font-size:14px; line-height:1.57; color:var(--color-fg-secondary); }
+.flowmap .flow-list { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+.flowmap-full:not([open]) { display:none; }
+.flowmap-full[open] { position:fixed; inset:0; margin:16px; width:auto; height:auto; max-width:none; max-height:none; padding:0; border:0; border-radius:20px; overflow:hidden;
+  display:grid; grid-template-rows:auto minmax(0, 1fr); gap:0; background:var(--color-bg-page); color:var(--color-fg-primary); box-shadow:0 40px 100px -30px rgba(10,21,36,.55);
+  animation:fm-full-in .32s var(--ease-out) both; }
+.flowmap-full::backdrop { background:rgba(10,21,36,.42); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); }
+@keyframes fm-full-in { from { opacity:0; transform:translateY(8px) scale(.985); } to { opacity:1; transform:none; } }
+.fm-full-head { display:flex; align-items:center; gap:12px 20px; flex-wrap:wrap; padding:14px 16px 14px 24px; border-bottom:1px solid var(--color-border-subtle); }
+.fm-full-head > .mono { color:var(--color-fg-secondary); }
+.fm-full-head .bar { flex:1 1 auto; }
+.fm-full-head .fm-enlarge { display:none; }
+.fm-zoom { display:inline-flex; align-items:center; height:42px; padding:4px; gap:2px; border-radius:999px; border:1px solid var(--color-border-subtle); background:var(--color-bg-page); }
+.fm-zoom button { appearance:none; border:0; background:none; min-width:34px; height:32px; padding:0 10px; border-radius:999px; color:var(--color-fg-primary); font:500 15px/1 Geist, system-ui, sans-serif; cursor:pointer; transition:background-color .15s ease; }
+.fm-zoom button[data-z="fit"] { font-size:14px; }
+.fm-zoom button:hover { background:var(--color-bg-wash); }
+.fm-zoom button:focus-visible { outline:2px solid var(--color-fg-accent); outline-offset:1px; }
+.fm-zoom output { min-width:48px; text-align:center; font:400 12px/1 "Geist Mono", ui-monospace, monospace; color:var(--color-fg-secondary); }
+.fm-close { appearance:none; width:42px; height:42px; display:grid; place-items:center; border-radius:999px; border:1px solid var(--color-border-subtle); background:var(--color-bg-page); color:var(--color-fg-primary); cursor:pointer; transition:background-color .15s ease; }
+.fm-close svg { width:18px; height:18px; }
+.fm-close:hover { background:var(--color-bg-wash); }
+.fm-close:focus-visible { outline:2px solid var(--color-fg-accent); outline-offset:2px; }
+.fm-full-body { display:grid; grid-template-rows:minmax(0, 1fr) auto; gap:10px; padding:16px 24px 18px; min-height:0; }
+.flowmap-full .plate { margin:0; min-height:0; display:flex; overflow:auto; cursor:grab; }
+.flowmap-full .plate.panning { cursor:grabbing; user-select:none; }
+.flowmap-full .plate svg { margin:auto; flex:none; min-width:0; max-width:none; }
+html.fm-locked { overflow:hidden; }
+@media (max-width:720px) {
+  .flowmap .bar, .flowmap .plate, .flowmap .readout { display:none; }
+  .flowmap .flow-list { position:static; width:auto; height:auto; overflow:visible; clip-path:none; white-space:normal; padding:20px 20px 20px 8px; border-radius:16px; background:var(--color-bg-surface); border:1px solid var(--color-border-subtle); }
+  .flow-list ul { list-style:none; padding-left:14px; border-left:1px solid var(--color-border-divider); margin-left:7px; }
+  .flow-list > ul { border-left:0; margin-left:0; padding-left:12px; }
+  .flow-list li { position:relative; padding:5px 0; font-size:15px; }
+  .flow-list li::before { content:""; position:absolute; left:-14px; top:17px; width:9px; border-top:1px solid var(--color-border-divider); }
+  .flow-list > ul > li::before { display:none; }
+  .flow-list li[data-kind="sheet"]::before, .flow-list li[data-kind="panel"]::before, .flow-list li[data-overlay]::before { border-top-style:dashed; }
+  .flow-list li > span { display:inline-block; padding:3px 10px; border-radius:8px; border:1px solid var(--color-border-subtle); background:var(--color-bg-page); line-height:1.3; }
+  .flow-list li[data-kind="hub"] > span { background:transparent; border-style:dashed; font:11px/1.4 "Geist Mono", ui-monospace, monospace; letter-spacing:.06em; text-transform:uppercase; color:var(--color-fg-secondary); }
+  .flow-list li[data-kind="home"] > span { background:#008081; color:#fff; border-color:transparent; }
+  :root[data-theme="dark"] .flow-list li[data-kind="home"] > span { background:#2CD2D2; color:#06282A; }
+  .flow-list li[data-ref] > span { background:#E0F7F7; border-color:rgba(0,196,196,.45); color:#143A5E; }
+  :root[data-theme="dark"] .flow-list li[data-ref] > span { background:#1D3B3C; color:#EAF1FA; }
+  .flow-list li[data-from] > span::after { content:"also from " attr(data-from); display:block; margin-top:2px; font:10px/1 "Geist Mono", ui-monospace, monospace; letter-spacing:.06em; text-transform:uppercase; color:var(--color-fg-secondary); }
+  .flow-list li[data-kind="sheet"] > span::after, .flow-list li[data-kind="panel"] > span::after { content:attr(data-kind); margin-left:8px; font:10px/1 "Geist Mono", ui-monospace, monospace; letter-spacing:.06em; text-transform:uppercase; color:var(--color-fg-secondary); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flowmap svg:not(.in) .edge:not(.sheet) { stroke-dasharray:none; stroke-dashoffset:0; } .flowmap svg:not(.in) .edge.sheet { stroke-opacity:1; } .flowmap svg:not(.in) .card { opacity:1; }
+  .flowmap svg.in .edge, .flowmap svg.in .card, .flowmap .readout .path, .flowmap .readout a { animation:none; }
+  .flowmap .edge, .flowmap .node, .flowmap .card, .flowmap .node rect.bg, .flowmap .route.go, .flowmap .seg::before, .flowmap .col, .flowmap .ring, .flowmap .xlink { transition:none; }
+  .flowmap-full[open] { animation:none; } .flowmap .fm-enlarge svg { transition:none; }
+  .flowmap svg:not(.in) .xlink { stroke-opacity:1; } .flowmap svg.in .xlink { animation:none; }
+  .flowmap .route { stroke-dasharray:none; stroke-dashoffset:0; }
+}

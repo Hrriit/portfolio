@@ -87,6 +87,86 @@
   <div class="intro-row"><p class="mono">Background</p><p>GLOSS Vault lets people pull their financial life (bank, credit, brokerage and “everything else” accounts) into one place, then budget and track against it. It’s an early-stage product built by a small team, and I’m the only designer.</p></div>
   <div class="intro-row"><p class="mono">What I did</p><p>Requirements usually arrived as a single sentence: a goal, not a spec. There was no researcher, no design ops and no PRD, so I built my own process for every feature: clarify the goal with the PM, map the current flow, study how comparable products solve it, define the scope, then design. Desktop and mobile, light and dark, every time.</p></div>
 
+  <div class="intro-row">
+    <p class="mono">The whole product</p>
+    <p>Everything hangs off one sidebar: Home with its three views, and nine more destinations beside it. On the phone the first four become the tab bar and the rest sit under More. The tinted screens are the ones this case study goes into.</p>
+  </div>
+
+  <figure class="flowmap" id="flowmap" data-density="compact" data-layout="split">
+    <div class="bar">
+      <div class="legend" aria-hidden="true"><span><i></i>a click</span><span><i class="dash"></i>opens on top, or jumps</span><span><i class="dots"></i>also reached from another screen</span><span><b></b>in this case study</span></div>
+      <div class="tools">
+        <div class="pick"><span class="mono" id="fm-l-platform">Platform</span><span class="seg" role="group" aria-labelledby="fm-l-platform"><button type="button" data-mode="desktop" aria-pressed="true">Desktop</button><button type="button" data-mode="phone" aria-pressed="false">Phone</button></span></div>
+        <button type="button" class="fm-enlarge" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6M10 20H4v-6M20 4l-6.5 6.5M4 20l6.5-6.5"/></svg><span>Enlarge</span></button>
+      </div>
+    </div>
+    <div class="plate"></div>
+
+    <div class="flow-list" aria-label="Map of GLOSS Vault: every screen and how it is reached">
+      <ul>
+        <li><span>Sign in</span>
+          <ul>
+            <li><span>Verify</span>
+              <ul>
+                <li data-kind="hub" data-phone-label="Tab bar"><span>Sidebar</span>
+                  <ul>
+                    <li data-kind="home"><span>Home</span>
+                      <ul>
+                        <li data-kind="tab"><span>Past</span><ul><li data-kind="sheet"><span>Transaction details</span></li></ul></li>
+                        <li data-kind="tab"><span>Today</span></li>
+                        <li data-kind="tab"><span>Future</span></li>
+                        <li data-kind="sheet" data-ref="#s1" data-ref-title="01 · Add account"><span>First-run guide</span></li>
+                        <li data-kind="group" data-overlay data-note="in the header, on every screen"><span>Search · Quick launch</span></li>
+                      </ul>
+                    </li>
+                    <li><span>Rewards</span><ul><li data-kind="group"><span>Coupons · Earn credits · Referral code</span></li></ul></li>
+                    <li><span>Accounts</span>
+                      <ul>
+                        <li data-from="Today"><span>Account details</span></li>
+                        <li data-kind="sheet" data-ref="#s1" data-ref-title="01 · Add account"><span>Add account</span>
+                          <ul>
+                            <li><span>Account type</span>
+                              <ul>
+                                <li><span>Auto fetch</span></li>
+                                <li><span>Add manually</span>
+                                  <ul><li><span>Details</span></li><li data-kind="sheet"><span>Add balance</span></li><li data-kind="sheet"><span>Add transaction</span></li></ul>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li data-gap data-ref="#s3" data-ref-title="03 · Product judgement"><span>Goals</span>
+                      <ul>
+                        <li><span>Budget detail</span></li>
+                        <li data-kind="sheet"><span>New budget</span></li>
+                      </ul>
+                    </li>
+                    <li data-phone="more"><span>Assets</span><ul><li><span>Asset details</span></li><li data-kind="sheet"><span>Add asset</span></li></ul></li>
+                    <li data-phone="more"><span>Categories</span><ul><li><span>Category details</span></li><li data-kind="sheet"><span>Add category</span></li></ul></li>
+                    <li data-phone="more"><span>Tools &amp; Plugins</span>
+                      <ul>
+                        <li><span>Your tools</span><ul><li data-from="Quick launch"><span>A tool's page</span></li><li data-kind="sheet"><span>Manage a tool</span></li></ul></li>
+                        <li><span>Plugins</span><ul><li data-kind="sheet"><span>Manage a plugin</span></li></ul></li>
+                        <li><span>Add tools &amp; plugins</span><ul><li data-kind="sheet"><span>Detail before install</span></li></ul></li>
+                      </ul>
+                    </li>
+                    <li data-gap data-phone="more"><span>Settings</span><ul><li data-kind="group"><span>Profile · Security · Preferences · Storage · Advanced</span></li></ul></li>
+                    <li data-ref="#s1" data-ref-title="01 · Add account" data-phone="more"><span>Help &amp; Guide</span><ul><li data-kind="group"><span>Get started · FAQ · Contact</span></li></ul></li>
+                    <li data-gap data-kind="sheet" data-phone="more"><span>Monthly summary</span></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <p class="readout" aria-live="polite"><span class="mono">Route</span><span class="path"></span></p>
+    <figcaption>Solid lines are clicks from one screen to the next. Dashed lines open something over the screen you are on, or jump out of it: a sheet, a panel, a pop-up. Point at any screen to trace its route from sign-in, click to keep it; switch to Phone to see the same screens fold into the tab bar and More.</figcaption>
+  </figure>
+
   <div class="case-body">
 
     <section class="sec flow" aria-labelledby="s1">
@@ -444,6 +524,7 @@
 </footer>
 
 <script src="js/case.js"></script>
+<script src="js/flowmap.js"></script>
 <script src="js/ba.js"></script>
 <script src="js/lightbox.js"></script>
 <script src="js/clips.js"></script>
