@@ -7,7 +7,7 @@
   function density(){
     compact = fig.dataset.density === 'compact'; split = fig.dataset.layout === 'split';
     var tight = compact && split;
-    H = tight ? 26 : compact ? 28 : 32; ROW = compact ? 6 : 10; GROUP = compact ? 10 : 14; PAD = tight ? 18 : compact ? 20 : 28; TOP = tight ? 38 : compact ? 42 : 50;
+    H = tight ? 26 : compact ? 28 : 32; ROW = compact ? 6 : 10; GROUP = compact ? 10 : 14; PAD = tight ? 18 : compact ? 20 : 28; TOP = PAD;
     LINE = tight ? 17 : compact ? 19 : 21; MAXW = tight ? 150 : compact ? 230 : 170; COL = tight ? 24 : compact ? 32 : 36; PX = tight ? 11 : 14;
     FONT = '500 ' + (tight ? 12.5 : compact ? 13 : 14) + 'px Geist, system-ui, sans-serif';
   }
@@ -278,7 +278,6 @@
     })(t);
     Array.prototype.slice.call(gE.querySelectorAll('.gone')).forEach(function(e){ setTimeout(function(){ e.remove(); }, 260); });
     gC.textContent = '';
-    t.labels.forEach(function(l){ var tx = text(l.x, TOP - 24, l.s, 'col', gC); tx.setAttribute('text-anchor', l.anchor); });
     if (pinned && live[pinned.id]) { pinned = live[pinned.id]; trace(pinned); } else { pinned = null; clear(); }
   }
 

@@ -43,7 +43,7 @@
       const ns = 'http://www.w3.org/2000/svg', svg = document.createElementNS(ns, 'svg'), path = document.createElementNS(ns, 'path');
       svg.setAttribute('class', 'ba-rope'); svg.setAttribute('aria-hidden', 'true'); svg.appendChild(path);
       ba.insertBefore(svg, ba.querySelector('.ba-line'));
-      const befores = ba.querySelectorAll('img.before'), nums = ba.querySelectorAll('.ba-nums');
+      const befores = () => ba.querySelectorAll('.before'), nums = ba.querySelectorAll('.ba-nums');
       const ends = { x: NaN, v: 0 };
       let W = 0, H = 0, max = 9, tagT = .06, raf = 0, prev = 0;
       const bow = () => Math.max(-max, Math.min(max, (cur - ends.x) * W * .5));
@@ -52,7 +52,7 @@
         const curve = `M${t} 0Q${c} ${m} ${t} ${h}`;
         path.setAttribute('d', curve);
         const left = `path("M0 0L${t} 0Q${c} ${m} ${t} ${h}L0 ${h}Z")`, right = `path("M${t} 0Q${c} ${m} ${t} ${h}L${w} ${h}L${w} 0Z")`;
-        befores.forEach((el) => { el.style.clipPath = left; });
+        befores().forEach((el) => { el.style.clipPath = left; });
         nums.forEach((el) => { el.style.clipPath = right; });
         ba.style.setProperty('--xt', (x - b + 4 * b * tagT * (1 - tagT)).toFixed(2) + 'px');
         ba.classList.add('is-rope');

@@ -26,6 +26,7 @@
 <link rel="preload" href="assets/fonts/Geist-Medium.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Newsreader-opsz.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/montserrat-gloss.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/site.css">
 <link rel="stylesheet" href="css/case.css">
 <link rel="stylesheet" href="css/fold-card.css">
@@ -68,7 +69,7 @@
   </header>
 
   <figure class="hero">
-    <div class="stage">
+    <div class="stage" data-live="gloss">
       <img class="desk" src="assets/img/work/gloss-vault/01-home-desktop-light-today.png" alt="GLOSS Vault home screen on desktop: an asset bubble chart beside the account list" width="860" height="612">
       <img class="phone" src="assets/img/work/gloss-vault/01-2-home-mobile-light-navbar.png" alt="The same home screen on a phone" width="236" height="511">
     </div>
@@ -383,75 +384,30 @@
       </div>
       <div class="bento">
         <div class="row">
-          <figure class="fig" style="--span:2"><img src="assets/img/work/gloss-vault/07-home-desktop-before.png" alt="The old home screen: a table of balances" loading="lazy"><figcaption>Before: the home screen read like a spreadsheet export.</figcaption></figure>
-          <figure class="fig alt" style="--span:2"><img src="assets/img/work/gloss-vault/01-home-desktop-light-today.png" alt="The new home screen: a bubble chart of assets by category" loading="lazy"><figcaption>After: a bubble chart of assets by category. Nobody had asked for it; I proposed it.</figcaption></figure>
+          <figure class="fig no-zoom ba-fig" style="--span:4; --ar:1440 / 1024">
+            <div class="stage ba" data-live="gloss-ba" style="--x:50%">
+              <img class="after" src="assets/img/work/gloss-vault/01-home-desktop-light-today.png" alt="After: the home screen in liquid glass, with the total balance in large numerals, five account bubbles sized by share, and the account list with each bank’s logo" width="2880" height="2048" loading="lazy" decoding="async">
+              <img class="before" src="assets/img/work/gloss-vault/07-home-desktop-before.png" alt="Before: the old home screen, three scenario balances over a line chart and a table of transactions" width="2880" height="2048" loading="lazy" decoding="async">
+              <span class="ba-line" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 8-4 4 4 4M15 8l4 4-4 4"/></svg></span></span><span class="mono ba-tag b" aria-hidden="true">Before</span><span class="mono ba-tag a" aria-hidden="true">After</span>
+              <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Home screen: compare before and after">
+            </div>
+            <figcaption>Before: the home screen read like a spreadsheet export. After: a bubble chart of assets by category. Nobody had asked for it; I proposed it.</figcaption>
+          </figure>
         </div>
-      </div>
-
-      <aside class="concept" data-ba aria-labelledby="s3-next">
-        <div class="concept-head">
-          <div>
-            <p class="mono concept-chip">Concept · not shipped</p>
-            <h3 id="s3-next">Where it could go next</h3>
-          </div>
-          <div>
-            <p>Two direction studies on the layout that shipped: liquid glass, and flat in GLOSS’s own colours. Not on the roadmap: at this stage engineering time goes to features first. These are where I test how far the visual language can stretch without touching the information architecture.</p>
-          </div>
+        <div class="row">
+          <figure class="fig no-zoom ba-fig" style="--span:4; --ar:1440 / 1024">
+            <div class="stage ba" data-live="gloss-goals" style="--x:50%">
+              <img class="after" src="assets/img/work/gloss-vault/goals-after.webp" alt="After: spending budgets as cards with a bar each; the selected one opens its details beside the list: spent against the limit with today marked, its categories, and the last three months" width="2880" height="2048" loading="lazy" decoding="async">
+              <img class="before" src="assets/img/work/gloss-vault/goals-before.webp" alt="Before: the Goals page as it is live, with four totals across the top, one progress bar for the period, and a list of budgets beside an empty panel" width="2880" height="2048" loading="lazy" decoding="async">
+              <span class="ba-line" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 8-4 4 4 4M15 8l4 4-4 4"/></svg></span></span><span class="mono ba-tag b" aria-hidden="true">Before</span><span class="mono ba-tag a" aria-hidden="true">After</span>
+              <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Goals page: compare before and after">
+            </div>
+            <figcaption>Saving goals vs spending budgets: you pick the type first, and “add” sits one level below the toggle, so it always belongs to the type you’re looking at.</figcaption>
+          </figure>
         </div>
-        <div class="ba-bar">
-          <div class="ba-pick"><span class="mono" id="ba-l-view">View</span><span class="ba-seg" role="group" aria-labelledby="ba-l-view"><button type="button" data-view="today" aria-pressed="true">Today</button><button type="button" data-view="past" aria-pressed="false">Past</button></span></div>
-          <div class="ba-pick"><span class="mono" id="ba-l-style">Style</span><span class="ba-seg" role="group" aria-labelledby="ba-l-style"><button type="button" data-skin="glass" aria-pressed="true">Liquid glass</button><button type="button" data-skin="flat" aria-pressed="false">Flat</button></span></div>
-          <p class="ba-hint">Drag across the picture to compare with the live screen.</p>
-        </div>
-        <figure class="fig no-zoom ba-fig" style="--ar:1440 / 1024">
-          <div class="stage ba" data-view="today" data-skin="glass" style="--x:50%">
-            <img class="after" src="assets/img/lab/colour-today-glass.webp" alt="After, liquid glass: the home screen on a pale blue-grey canvas, with frosted white cards, a pill navigation, the balance in thin oversized numerals, five glass orbs for the accounts" width="2400" height="1707" loading="lazy" decoding="async" data-view="today" data-skin="glass">
-            <img class="after" src="assets/img/lab/colour-today-flat.webp" alt="After, flat: the same home screen in GLOSS’s own colours, with white cards on light grey, teal for the selected period and the largest account, a charcoal chart card" width="2400" height="1707" loading="lazy" decoding="async" data-view="today" data-skin="flat">
-            <img class="before" src="assets/img/lab/colour-today-before.webp" alt="Before: the shipped home screen, with a sidebar, the balance in a green card, account bubbles and an account list" width="2400" height="1707" loading="lazy" decoding="async" data-view="today">
-            <img class="after" src="assets/img/lab/colour-past-glass.webp" alt="After, liquid glass: the past view, with the closing balance in thin numerals, four tagged figures, a weekly balance line and a per-account bar on frosted cards" width="2400" height="1707" loading="lazy" decoding="async" data-view="past" data-skin="glass">
-            <img class="after" src="assets/img/lab/colour-past-flat.webp" alt="After, flat: the past view in GLOSS’s own colours, with orange for the selected period, four stat cards, a charcoal chart card with the weekly line" width="2400" height="1707" loading="lazy" decoding="async" data-view="past" data-skin="flat">
-            <img class="before" src="assets/img/lab/colour-past-before.webp" alt="Before: the shipped past view, with an orange tab, the closing balance in a green card, a per-account list and the transactions" width="2400" height="1707" loading="lazy" decoding="async" data-view="past">
-            <div class="ba-nums urbanist" data-view="today" data-skin="glass" aria-hidden="true">
-              <span class="n ba-amt" style="--l:36;--t:228;--fs:148;--lh:150;--ls:-0.035;--c:#1B2531;--cd:#7A8491" data-v="13813.31" data-d="2"><span class="i">13,813</span><span class="d">.31</span></span>
-              <span class="n" style="--l:36;--t:418;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="5" data-d="0">5</span>
-              <span class="n" style="--l:237;--t:416;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="4.55" data-d="2">4.55</span>
-              <span class="n" style="--l:418;--t:418;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="36" data-d="0">36</span>
-              <span class="n" style="--l:576;--t:416;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="4.5" data-d="2" data-p="≈">≈4.50</span>
-            </div>
-            <div class="ba-nums poppins" data-view="today" data-skin="flat" aria-hidden="true">
-              <span class="n ba-amt" style="--l:32;--t:220;--fs:80;--lh:92;--ls:-0.02;--c:#1C2024;--cd:#1C2024" data-v="13813.31" data-d="2"><span class="i">13,813</span><span class="d">.31</span></span>
-              <span class="n" style="--l:50;--t:392;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="5" data-d="0">5</span>
-              <span class="n" style="--l:268;--t:392;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="4.55" data-d="2">4.55</span>
-              <span class="n" style="--l:486;--t:392;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="36" data-d="0">36</span>
-              <span class="n" style="--l:704;--t:392;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="4.5" data-d="2" data-p="≈">≈4.50</span>
-            </div>
-            <div class="ba-nums urbanist" data-view="past" data-skin="glass" aria-hidden="true">
-              <span class="n ba-amt" style="--l:36;--t:220;--fs:148;--lh:150;--ls:-0.035;--c:#1B2531;--cd:#7A8491" data-v="4730.34" data-d="2"><span class="i">4,730</span><span class="d">.34</span></span>
-              <span class="n" style="--l:36;--t:410;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="242" data-d="0">242</span>
-              <span class="n" style="--l:206;--t:408;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="5762.7" data-d="2">5,762.70</span>
-              <span class="n" style="--l:384;--t:410;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="1850.0" data-d="2">1,850.00</span>
-              <span class="n" style="--l:555;--t:408;--fs:30;--lh:36;--ls:-0.02;--c:#1B2531" data-v="2880.34" data-d="2" data-p="+">+2,880.34</span>
-            </div>
-            <div class="ba-nums poppins" data-view="past" data-skin="flat" aria-hidden="true">
-              <span class="n ba-amt" style="--l:32;--t:212;--fs:80;--lh:92;--ls:-0.02;--c:#1C2024;--cd:#1C2024" data-v="4730.34" data-d="2"><span class="i">4,730</span><span class="d">.34</span></span>
-              <span class="n" style="--l:50;--t:384;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="242" data-d="0">242</span>
-              <span class="n" style="--l:268;--t:384;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="5762.7" data-d="2">5,762.70</span>
-              <span class="n" style="--l:486;--t:384;--fs:26;--lh:36;--ls:-0.01;--c:#1C2024" data-v="1850.0" data-d="2">1,850.00</span>
-              <span class="n" style="--l:704;--t:384;--fs:26;--lh:36;--ls:-0.01;--c:#3E9B4F" data-v="2880.34" data-d="2" data-p="+">+2,880.34</span>
-            </div>
-            <span class="ba-line" aria-hidden="true"><span class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 8-4 4 4 4M15 8l4 4-4 4"/></svg></span></span><span class="mono ba-tag b" aria-hidden="true">Before</span><span class="mono ba-tag a" aria-hidden="true">After</span>
-            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Home, two direction studies: compare before and after">
-          </div>
-        </figure>
-      </aside>
-
-      <div class="bento">
-        <div class="row eq plate">
-          <figure class="fig" style="--span:2"><img src="assets/img/work/gloss-vault/08-1-budget-saving-goals.png" alt="The Budgets page with saving goals selected" loading="lazy"><figcaption>Saving goals vs spending budgets: you pick the type first, and “add” sits one level below the toggle, so it always belongs to the type you’re looking at.</figcaption></figure>
-          <div class="col" style="--span:2">
-            <div class="tile"><p class="mono">“Add a column, the wide screen looks empty.”</p><p>It wasn’t a content problem. It was a responsive-layout problem: centring the content fixed it with no new feature.</p></div>
-            <div class="tile"><p class="mono">Saying no</p><p>Summary widgets in Budgets would have repeated what the Transactions view already shows, so I argued against them.</p></div>
-          </div>
+        <div class="row">
+          <div class="tile" style="--span:2"><p class="mono">“Add a column, the wide screen looks empty.”</p><p>It wasn’t a content problem. It was a responsive-layout problem: centring the content fixed it with no new feature.</p></div>
+          <div class="tile" style="--span:2"><p class="mono">Saying no</p><p>Summary widgets in Budgets would have repeated what the Transactions view already shows, so I argued against them.</p></div>
         </div>
       </div>
     </section>
@@ -526,6 +482,8 @@
 <script src="js/case.js"></script>
 <script src="js/flowmap.js"></script>
 <script src="js/ba.js"></script>
+<script src="js/gloss-ui.js"></script>
+<script src="js/gloss-hero.js"></script>
 <script src="js/lightbox.js"></script>
 <script src="js/clips.js"></script>
 <script src="js/fold-card.js"></script>
