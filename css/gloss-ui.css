@@ -196,7 +196,7 @@
   --red-9:#e5484d; --red-11:#ce2c31; --amber-3:#fff7c2; --amber-4:#ffee9c; --amber-9:#ffc53d; --amber-11:#ab6400;
   --slate-3:#f0f0f3; --slate-5:#e0e1e6; --in-text:#2a7e3b; --out-text:#d13415;
   --cta-glow:0 6px 12px 0 rgba(41,178,178,.3), 3px 3px 8px 0 var(--sh-drop), -3px -3px 6px 0 var(--sh-hl); }
-.gv.goals .nav .it.on { border-radius:14px; font-weight:500; }
+.gv.goals .nav .it.on { border-radius:14px; font-weight:700; }
 .gv.goals .sp { flex:1; min-width:0; }
 .gv.goals .dot { width:6px; height:6px; }
 .gv.goals .dot.teal { background:var(--teal-9); } .gv.goals .dot.amber { background:var(--amber-9); }
