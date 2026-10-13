@@ -75,6 +75,85 @@
   <div class="intro-row"><p class="mono">Background</p><p>The product pays a business’s supplier invoice up front; the business repays in instalments. Before anyone can borrow, the lender has to know exactly who it is lending to. That check is called KYB (know your business), and it is where compliance and drop-off pull in opposite directions.</p></div>
   <div class="intro-row"><p class="mono">What I did</p><p>The client set out what the product had to do; I designed it, and one developer built it. There were no users to interview yet, so discovery was desk research: AUSTRAC guidance, the ABR and ASIC registers, how comparable products onboard a business, and a line-by-line read of the PRD.</p></div>
 
+  <div class="intro-row">
+    <p class="mono">The whole product</p>
+    <p>A business applies and borrows in a four-tab app; everything it submits lands in a back office, where a person reviews it. The tinted screens are the ones this case study goes into.</p>
+  </div>
+
+  <figure class="pmap" id="pmap" aria-label="Map of the app and the back office"
+          data-say-launch="A person checks every application by hand, in the back office (the light panel). Point at a screen to trace its route; click to keep it.">
+    <div class="bar">
+      <div class="legend" aria-hidden="true"><span><i></i>a tap or click</span><span><i class="dash"></i>opens on top</span><span><i class="dots"></i>also reached from another screen</span><span><i class="handoff"></i>lands in the back office</span><span><b></b>in this case study</span></div>
+    </div>
+    <div class="plate"></div>
+
+    <div class="flow-list" aria-label="Map of the app and the back office: every screen and how it is reached">
+      <ul>
+        <li data-band="app" data-band-label="The app" data-unit="tap" data-note="sign up (a phone number or email, a code and a passcode, then Face ID if you want it) or log in"><span>Welcome</span>
+          <ul>
+            <li data-kind="hub" data-note="Home, Payments, Repay and Profile, one tap each"><span>Tab bar</span>
+              <ul>
+                <li data-kind="home" data-note="where you land; it changes as the business goes from verifying to borrowing to repaying"><span>Home</span>
+                  <ul>
+                    <li data-ref="#s3" data-ref-title="03 · Phased delivery" data-note="three steps, checked by a person in 1–2 business days"><span>Verify your business</span>
+                      <ul>
+                        <li data-kind="group" data-break="1,2" data-note="the three steps, each its own screen: details typed in by hand, directors and 25%+ owners with their ID, the ASIC extract and a bank statement"><span>Business details · Owners &amp; ID · Upload documents</span></li>
+                        <li data-ref="#s4" data-ref-title="04 · Back office" data-handoff="KYB applications"><span>Review &amp; submit</span>
+                          <ul>
+                            <li data-note="done by a person, not a system: 1–2 business days"><span>Under review</span>
+                              <ul><li data-kind="group" data-note="the reviewer’s decision, back in the app"><span>Approved · Declined</span></li></ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li data-ref="#s5" data-ref-title="05 · Product thinking" data-note="behind the bell on Home"><span>Notification centre</span></li>
+                    <li data-kind="sheet" data-ref="#s5" data-ref-title="05 · Product thinking" data-note="a sheet over Home before an instalment is due; outside the app, a lock-screen push 3 days before, on the day and when overdue"><span>Due reminder</span></li>
+                  </ul>
+                </li>
+                <li><span>Payments</span>
+                  <ul>
+                    <li data-ref="#s5" data-ref-title="05 · Product thinking" data-from="Home" data-note="step 1 of 4: the total cost updates as you pick a term"><span>Amount &amp; terms</span>
+                      <ul>
+                        <li data-note="step 2 of 4: name and ABN come from the ABR"><span>Supplier</span>
+                          <ul>
+                            <li data-note="step 3 of 4: the invoice, or a reason"><span>What it’s for</span>
+                              <ul><li data-handoff="Payment requests" data-note="step 4 of 4"><span>Review &amp; submit</span></li></ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                    <li data-note="one screen, four states: pending approval, waiting for payout, disbursed, rejected"><span>Request details</span></li>
+                  </ul>
+                </li>
+                <li><span>Repay</span>
+                  <ul>
+                    <li><span>Repayment plan</span>
+                      <ul><li><span>Pay an instalment</span><ul><li data-note="pending until the transfer is matched"><span>Payment sent</span></li></ul></li></ul>
+                    </li>
+                    <li><span>Credit statements</span><ul><li><span>Statement</span></li></ul></li>
+                  </ul>
+                </li>
+                <li><span>Profile</span>
+                  <ul><li data-kind="group" data-break="1,2,3,5" data-note="the rows of Profile; each detail opens its own edit screen (a new email needs a code)"><span>Personal details · Business details · Bank accounts · Notifications · Help · Log out · Close account</span></li></ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li data-band="office" data-band-label="Back office" data-unit="click" data-kind="hub" data-note="Payment requests and KYB applications, one click each"><span>Sidebar</span>
+          <ul>
+            <li><span>Payment requests</span><ul><li data-note="approve or reject; once approved, mark it paid out"><span>Request review</span></li></ul></li>
+            <li data-gap><span>KYB applications</span><ul><li data-ref="#s4" data-ref-title="04 · Back office" data-note="what the applicant entered, the files, a checklist and flags; approve with a limit, or reject with a reason"><span>KYB review</span></li></ul></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <p class="readout" aria-live="polite"><span class="mono">Route</span><span class="path"></span></p>
+    <figcaption>Solid lines are a tap in the app or a click in the back office; dashed ones open over the screen you are on. The teal dotted lines are data, not taps: what a business submits shows up in the back office for a person to review. Point at a screen to trace its route; click to keep it.</figcaption>
+  </figure>
+
   <div class="case-body">
 
     <section class="sec" aria-labelledby="s1">
@@ -288,6 +367,7 @@
 </footer>
 
 <script src="js/case.js"></script>
+<script src="js/flowmap-b2b.js"></script>
 <script src="js/lightbox.js"></script>
 <script src="js/gate.js"></script>
 <script src="js/fold-card.js"></script>
